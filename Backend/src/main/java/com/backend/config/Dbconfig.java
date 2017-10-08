@@ -15,6 +15,8 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.backend.DAO.CategoryDAO;
+import com.backend.DAO.CategoryDAOImpl;
 import com.backend.DAO.ProductDAO;
 import com.backend.DAO.ProductDAOImpl;
 import com.backend.model.Product;
@@ -77,4 +79,12 @@ public class Dbconfig
 	{
 	    return new ProductDAOImpl(sessionFactory);
 	}
+	
+	@Autowired
+	@Bean(name = "categoryDAO")
+	public CategoryDAO getCategoryDAO(SessionFactory sessionFactory) 
+	{
+	    return new CategoryDAOImpl(sessionFactory);
+	}
+	
 }
