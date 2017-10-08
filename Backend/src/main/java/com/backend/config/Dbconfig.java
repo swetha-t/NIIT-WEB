@@ -15,10 +15,14 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.backend.DAO.CartDAO;
+import com.backend.DAO.CartDAOImpl;
 import com.backend.DAO.CategoryDAO;
 import com.backend.DAO.CategoryDAOImpl;
 import com.backend.DAO.ProductDAO;
 import com.backend.DAO.ProductDAOImpl;
+import com.backend.model.Cart;
+import com.backend.model.Category;
 import com.backend.model.Product;
 
 @Configuration
@@ -57,7 +61,8 @@ public class Dbconfig
 			LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 			sessionBuilder.addProperties(getHibernateProperties());
 			sessionBuilder.addAnnotatedClass(Product.class);
-			//sessionBuilder.addAnnotatedClass(Category.class);
+			sessionBuilder.addAnnotatedClass(Category.class);
+			sessionBuilder.addAnnotatedClass(Cart.class);
 			System.out.println("Session");
 			
 			return sessionBuilder.buildSessionFactory();
@@ -85,6 +90,13 @@ public class Dbconfig
 	public CategoryDAO getCategoryDAO(SessionFactory sessionFactory) 
 	{
 	    return new CategoryDAOImpl(sessionFactory);
+	}
+	
+	@Autowired
+	@Bean(name = "cartAO")
+	public CartDAO getCartDAO(SessionFactory sessionFactory) 
+	{
+	    return new CartDAOImpl(sessionFactory);
 	}
 	
 }
