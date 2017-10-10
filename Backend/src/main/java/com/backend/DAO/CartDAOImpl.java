@@ -23,16 +23,21 @@ public class CartDAOImpl implements CartDAO {
 public boolean saveCart(Cart cart) {
 	Session s=sessionFactory.openSession();
 	s.saveOrUpdate(cart);
+	//s.flush();
 	Transaction t=s.beginTransaction();
 	t.commit();
 	return true;
 
 }
-
-	
-	public List getAllCart() {
+	@SuppressWarnings("unchecked")
+	public List<Cart> getAllCart() {
 		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().createQuery("from Cart").list();
+	}
+
+	public boolean updateCart(Cart cart) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

@@ -39,6 +39,10 @@ public class Product {
 	public void setPrice(double price) {
 		Price = price;
 	}
+	public String getProduct_Name() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

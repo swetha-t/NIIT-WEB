@@ -16,13 +16,6 @@ public class Cart {
 	private int CartItemId;
 	private int OrderId,Quantity,ProductId;
 	private int Price;
-	public int getPrice() {
-		return Price;
-	}
-	public void setPrice(int price) {
-		Price = price;
-	}
-	private String Username,Status;
 	public int getCartItemId() {
 		return CartItemId;
 	}
@@ -41,26 +34,16 @@ public class Cart {
 	public void setQuantity(int quantity) {
 		Quantity = quantity;
 	}
-	
-	
 	public int getProductId() {
 		return ProductId;
 	}
 	public void setProductId(int productId) {
 		ProductId = productId;
 	}
-	public String getUsername() {
-		return Username;
+	public int getPrice() {
+		return Price;
 	}
-	public void setUsername(String username) {
-		Username = username;
-	}
-	public String getStatus() {
-		return Status;
-	}
-	public void setStatus(String status) {
-		Status = status;
-	}
-
-	
+	public void setPrice(int price) {
+		Price = price;
+	}	
 }

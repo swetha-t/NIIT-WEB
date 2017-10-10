@@ -21,9 +21,15 @@ import com.backend.DAO.CategoryDAO;
 import com.backend.DAO.CategoryDAOImpl;
 import com.backend.DAO.ProductDAO;
 import com.backend.DAO.ProductDAOImpl;
+import com.backend.DAO.SupplierDAO;
+import com.backend.DAO.SupplierDAOImpl;
+import com.backend.DAO.UserDao;
+import com.backend.DAO.UserDaoImpl;
 import com.backend.model.Cart;
 import com.backend.model.Category;
 import com.backend.model.Product;
+import com.backend.model.Supplier;
+import com.backend.model.User;
 
 @Configuration
 @ComponentScan("com.backend")
@@ -61,8 +67,11 @@ public class Dbconfig
 			LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 			sessionBuilder.addProperties(getHibernateProperties());
 			sessionBuilder.addAnnotatedClass(Product.class);
+			sessionBuilder.addAnnotatedClass(User.class);
 			sessionBuilder.addAnnotatedClass(Category.class);
 			sessionBuilder.addAnnotatedClass(Cart.class);
+			sessionBuilder.addAnnotatedClass(Supplier.class);
+			
 			System.out.println("Session");
 			
 			return sessionBuilder.buildSessionFactory();
@@ -93,10 +102,18 @@ public class Dbconfig
 	}
 	
 	@Autowired
-	@Bean(name = "cartAO")
+	@Bean(name = "cartDAO")
 	public CartDAO getCartDAO(SessionFactory sessionFactory) 
 	{
 	    return new CartDAOImpl(sessionFactory);
 	}
+	
+	@Autowired
+	@Bean(name = "supplierDAO")
+	public SupplierDAO getSupplierDetailsDAO(SessionFactory sessionFactory) {
+			return new SupplierDAOImpl(sessionFactory);
+	}
+
+	
 	
 }
