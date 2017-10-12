@@ -2,48 +2,68 @@ package com.backend.Test;
 
 import static org.junit.Assert.*;
 
-
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.backend.DAO.CategoryDAO;
-import com.backend.config.Dbconfig;
 import com.backend.model.Category;
+import com.backend.model.Product;
 
+@SuppressWarnings("unused")
 @ComponentScan("com.backend")
-public class CategoryTest 
-{
-	
+public class CategoryTest {
 	@Autowired
 	private static CategoryDAO categoryDAO;
 	
-	@SuppressWarnings("resource")
 	@BeforeClass
-	public static void initialize()
+	public static void Initialize()
 	{
 		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
-		context.register(Dbconfig.class);
+		context.scan("com.backend.*");
 		context.refresh();
-		
-		categoryDAO=(CategoryDAO) context.getBean("categoryDAO");
-		
+		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
 	}
 	
 	@Test
-	public void createCategory()
+		public void saveCategory()
 	{
-		Category category=new Category();
-		//category.setCatId(1);
-		category.setCategoryName("MOTO");
-		category.setCategoryDescription("Andriod ");
-		//boolean flag=categoryDAO.saveCategory(category);
-		//assertEquals("createCategoryTestCase", true, flag);
-		
+	   Category category= new Category();
+	   category.setCatName("Andriod");
+	   category.setCatDescription("marshallow os");
+	   boolean flag=categoryDAO.saveCategory(category);
+	   assertEquals("creatCategoryTest",true,flag);
 	}
-	
+		@Ignore
+		@Test
+		public void deleteCategory()
+	{
+	   Category category= new Category();
+	   category.setCatName("Mobile accessories");
+	   category.setCatDescription("IOSsoftware");
+	   boolean flag=categoryDAO.deleteCategory(category);
+	   assertEquals("creatCategoryTest",true,flag);
+	}
+		@Ignore	
+		@Test
+		public void updateCategory()
+	{
+	   Category category= new Category();
+	   category.setCatName("Mobile accessories");
+	   category.setCatDescription("Andriod software");
+	   boolean flag=categoryDAO.updateCategory(category);
+	   assertEquals("creatCategoryTest",true,flag);
+	}
+
+		@Ignore
+		@Test
+		public void retrieveCategory()
+		{
+			Category category= new Category();
+			boolean listcategory=categoryDAO.getCategory(6);
+			assertNotNull("problem in getting by id",category);
+		}
 }
-
-

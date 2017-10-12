@@ -1,36 +1,53 @@
 package com.backend.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 @Entity
-@Component
-public class Category {
-	
-	@Id
-	@GeneratedValue
-private int CatId;
-private String CategoryName;
-private String CategoryDescription;
-public int getCatId() {
-	return CatId;
-}
-public void setCatId(int catId) {
-	CatId = catId;
-}
-public String getCategoryName() {
-	return CategoryName;
-}
-public void setCategoryName(String categoryName) {
-	CategoryName = categoryName;
-}
-public String getCategoryDescription() {
-	return CategoryDescription;
-}
-public void setCategoryDescription(String categoryDescription) {
-	CategoryDescription = categoryDescription;
-}
+@ComponentScan("com.backend")
+@Table(name="Category_Details")
+public class Category  implements Serializable{
 
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="catid")
+	private int Catid;
+	private String CatName;
+	private String CatDescription;
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	public int getCatid() {
+		return Catid;
+	}
+	public void setCatid(int catid) {
+		Catid = catid;
+	}
+	public String getCatName() {
+		return CatName;
+	}
+	public void setCatName(String catName) {
+		CatName = catName;
+	}
+	public String getCatDescription() {
+		return CatDescription;
+	}
+	public void setCatDescription(String catDescription) {
+		CatDescription = catDescription;
+	}
 }

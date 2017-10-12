@@ -31,14 +31,7 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 	
 
-	public boolean createProduct(Product product) {
-		// TODO Auto-generated method stub
-		Session session =sessionFactory.openSession();
-		session.persist(product);
-		org.hibernate.Transaction tx=session.beginTransaction();
-		tx.commit();
-		return true;
-	}
+	
 
 	@SuppressWarnings("rawtypes")
 	public boolean getProduct(int id) {
@@ -80,4 +73,24 @@ public class ProductDAOImpl implements ProductDAO {
 		sessionFactory.getCurrentSession().createQuery("DELETE FROM Product WHERE id = "+id).executeUpdate();
 		return true;
 	}
+
+public boolean updateProduct(int id) {
+	// TODO Auto-generated method stub
+	return false;
+}
+
+
+
+
+
+
+public boolean saveProduct(Product p) {
+	// TODO Auto-generated method stub
+	Session session =sessionFactory.openSession();
+	session.persist(p);
+	org.hibernate.Transaction tx=session.beginTransaction();
+	
+	tx.commit();
+	return false;
+}
 }
