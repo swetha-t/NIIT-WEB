@@ -16,13 +16,19 @@ import com.backend.model.Supplier;
 @Repository
 
 public class SupplierDAOImpl implements SupplierDAO {
-
 	@Autowired
 	private SessionFactory sessionFactory;
-
 	@Autowired
 	private SupplierDAO supplierDAO;
 	
+	public SupplierDAOImpl(SessionFactory sessionFactory) 
+	{	
+		this.sessionFactory=sessionFactory;
+	}
+	
+	
+
+
 	public boolean createSupplier(Supplier supplier) {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.openSession();
@@ -31,10 +37,8 @@ public class SupplierDAOImpl implements SupplierDAO {
 		tx.commit();
 		return false;
 	}
-	public SupplierDAOImpl(SessionFactory sessionFactory) 
-	{	
-		this.sessionFactory=sessionFactory;
-	}
+
+
 	public boolean getSupplier(int id) {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.openSession();
@@ -56,7 +60,8 @@ public class SupplierDAOImpl implements SupplierDAO {
 
 		return true;
 	}
-@Transactional
+
+
 	public boolean updateSupplier(Supplier supplier) {
 		// TODO Auto-generated method stub
 		 Session session = sessionFactory.openSession();
@@ -64,20 +69,19 @@ public class SupplierDAOImpl implements SupplierDAO {
 		 Supplier sp=(Supplier)o;
 		 
 		 Transaction tx = session.beginTransaction(); 
-		sp.setSupplier_name("Apple");  // implicitly update method will be called.
+		sp.setSupplier_name("Amazon");  // implicitly update method will be called.
 		 tx.commit();
 		 
 		 System.out.println("Object Updated successfully.....!!");
 		 return true;
-	
 	}
-@Transactional
+
+	@Transactional
 	public boolean deleteSupplier(int id) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().createQuery("DELETE FROM Supplier WHERE id = "+id).executeUpdate();
 		return true;
 	}
-
-	}
-
-
+}
+		
+	

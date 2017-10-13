@@ -35,13 +35,13 @@ public class SupplierTest {
 	public void createSupplierTestCase()
 	{
 		Supplier supplier= new Supplier();
-		supplier.setSupplier_name("Flipkart");
+		supplier.setSupplier_name("Amazon");
 			supplierDAO.createSupplier(supplier);
 			boolean flag=supplierDAO.createSupplier(supplier);
 			
 			assertEquals("createsupplierTestCase",true,flag);
 
-		}
+		} 
 	@Ignore
 	@Test
 	public void deleteSupplierTestCase()
@@ -49,21 +49,10 @@ public class SupplierTest {
 	{
 
 		Supplier supplier= new Supplier();
-		supplier.setSupplier_name("Amazon");
+		supplier.setSupplier_name("Myntra");
 
 			boolean flag=supplierDAO.deleteSupplier(25);
 			
 			assertEquals("createsupplierTestCase",true,flag);
 	}
-	
-/*	@Test
-	public void editSupplierTestCase()
-	{
-		supplier.setId(911);;
-		supplier.setSupplier_name("apple");
-		supplierDAO.edit(supplier);
-		int noofpro = supplierDAO.list().size();
-		assertEquals(3, noofpro);
-	}*/
-
 }

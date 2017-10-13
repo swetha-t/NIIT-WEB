@@ -1,49 +1,77 @@
 package com.backend.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-
-@Entity
 @Component
-public class Cart {
+@Entity
+@Table(name="Cart_details")
 
-	@Id
-	@GeneratedValue
-	private int CartItemId;
-	private int OrderId,Quantity,ProductId;
-	private int Price;
-	public int getCartItemId() {
-		return CartItemId;
-	}
-	public void setCartItemId(int cartItemId) {
-		CartItemId = cartItemId;
-	}
-	public int getOrderId() {
-		return OrderId;
-	}
-	public void setOrderId(int orderId) {
-		OrderId = orderId;
-	}
-	public int getQuantity() {
-		return Quantity;
-	}
-	public void setQuantity(int quantity) {
-		Quantity = quantity;
-	}
-	public int getProductId() {
-		return ProductId;
-	}
-	public void setProductId(int productId) {
-		ProductId = productId;
-	}
-	public int getPrice() {
-		return Price;
-	}
-	public void setPrice(int price) {
-		Price = price;
-	}	
+public class Cart implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6030333579665223797L;
+//@Id
+@Column(name="cid")
+@GeneratedValue
+private int cartid,productid;
+private String productname,username,status;
+private int quantity;
+private double price;
+public int getCartid() {
+	return cartid;
+}
+public void setCartid(int cartid) {
+	this.cartid = cartid;
+}
+public int getProductid() {
+	return productid;
+}
+public void setProductid(int productid) {
+	this.productid = productid;
+}
+public String getProductname() {
+	return productname;
+}
+public void setProductname(String productname) {
+	this.productname = productname;
+}
+public String getUsername() {
+	return username;
+}
+public void setUsername(String username) {
+	this.username = username;
+}
+public String getStatus() {
+	return status;
+}
+public void setStatus(String status) {
+	this.status = status;
+}
+public int getQuantity() {
+	return quantity;
+}
+public void setQuantity(int quantity) {
+	this.quantity = quantity;
+}
+public double getPrice() {
+	return price;
+}
+public void setPrice(double price) {
+	this.price = price;
+}
+public static long getSerialversionuid() {
+	return serialVersionUID;
+}
+
+	
+	
 }

@@ -14,23 +14,31 @@ import org.springframework.stereotype.Component;
 	@Entity
 	@Table(name="Supplier_details")
 	public class Supplier {
-		@Id
-		@Column(name="supid")
-	    @GeneratedValue
-	 private int id;
-	 private String supplier_name;
-	// @OneToMany(fetch=FetchType.EAGER,mappedBy="supplier")
-	//private Set<Product>products=new HashSet<Product>(0);
-	 public int getId() {
+	@Id
+	@Column(name="supid")
+	   @GeneratedValue
+	private int id;
+	private String  supplier_Name ;
+	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
+	public String getName() {
+		return supplier_Name;
+	}
+	public void setName(String name) {
+		supplier_Name = name;
+	}
+	public void setSupplier_name(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 	public String getSupplier_name() {
-		return supplier_name;
+		// TODO Auto-generated method stub
+		return null;
 	}
-	public void setSupplier_name(String supplier_name) {
-		this.supplier_name = supplier_name;
-	}
+
+	
 }

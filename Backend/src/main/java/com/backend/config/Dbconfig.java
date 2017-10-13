@@ -15,12 +15,21 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.backend.DAO.CartDAO;
+import com.backend.DAO.CartDAOImpl;
 import com.backend.DAO.CategoryDAO;
 import com.backend.DAO.CategoryDAOImpl;
 import com.backend.DAO.ProductDAO;
 import com.backend.DAO.ProductDAOImpl;
+import com.backend.DAO.SupplierDAO;
+import com.backend.DAO.SupplierDAOImpl;
+import com.backend.DAO.UserDAO;
+import com.backend.DAO.UserDAOImpl;
+import com.backend.model.Cart;
 import com.backend.model.Category;
 import com.backend.model.Product;
+import com.backend.model.Supplier;
+import com.backend.model.User;
 
 
 @Configuration
@@ -57,8 +66,10 @@ public class Dbconfig {
 		public SessionFactory getSessionFactory(DataSource dataSource) {
 			LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 			sessionBuilder.addProperties(getHibernateProperties());
-			sessionBuilder.addAnnotatedClass(Product.class);
 			sessionBuilder.addAnnotatedClass(Category.class);
+			sessionBuilder.addAnnotatedClass(Supplier.class);
+			sessionBuilder.addAnnotatedClass(User.class);
+			sessionBuilder.addAnnotatedClass(Cart.class);
 			sessionBuilder.scanPackages("com.backend.*");
 			System.out.println("Session");
 			
@@ -89,8 +100,27 @@ public class Dbconfig {
 	    return new CategoryDAOImpl(sessionFactory);
 	}
 	
+	@Autowired
+	@Bean(name = "supplierDAO")
+	public SupplierDAO getsupplierDAO(SessionFactory sessionFactory) 
+	{
+	    return new SupplierDAOImpl(sessionFactory);
+	}
 	
 	
+	@Autowired
+	@Bean(name = "userDAO")
+	public UserDAO getuserDAO(SessionFactory sessionFactory) 
+	{
+	    return new UserDAOImpl(sessionFactory);
+	}
+	
+	@Autowired
+	@Bean(name = "cartDAO")
+	public CartDAO getcartDAO(SessionFactory sessionFactory) 
+	{
+	    return new CartDAOImpl(sessionFactory);
+	}
 	
 	
 	
