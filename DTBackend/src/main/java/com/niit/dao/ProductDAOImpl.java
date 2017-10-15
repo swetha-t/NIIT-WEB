@@ -101,4 +101,10 @@ public class ProductDAOImpl implements ProductDAO {
 		return true;
 	}
 
+	
+	public boolean updateProduct(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

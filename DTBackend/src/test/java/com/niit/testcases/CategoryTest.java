@@ -36,7 +36,7 @@ public class CategoryTest {
 	public void saveCategory()
 	{
 		Category category=new Category();
-		category.setCatName("Books");
+		category.setCatName("BOOKS");
 		category.setCatDescription("Fiction books");
 		boolean flag=categoryDAO.saveCategory(category);
 		assertEquals("createCategoryTestCase", true, flag);
