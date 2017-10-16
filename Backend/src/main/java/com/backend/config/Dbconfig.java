@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -30,6 +30,8 @@ import com.backend.model.Category;
 import com.backend.model.Product;
 import com.backend.model.Supplier;
 import com.backend.model.User;
+
+
 
 
 @Configuration
@@ -66,9 +68,10 @@ public class Dbconfig {
 		public SessionFactory getSessionFactory(DataSource dataSource) {
 			LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 			sessionBuilder.addProperties(getHibernateProperties());
-			sessionBuilder.addAnnotatedClass(Category.class);
+			sessionBuilder.addAnnotatedClass(Product.class);
 			sessionBuilder.addAnnotatedClass(Supplier.class);
 			sessionBuilder.addAnnotatedClass(User.class);
+			sessionBuilder.addAnnotatedClass(Category.class);
 			sessionBuilder.addAnnotatedClass(Cart.class);
 			sessionBuilder.scanPackages("com.backend.*");
 			System.out.println("Session");
@@ -86,8 +89,9 @@ public class Dbconfig {
 		}
 		
 	//Factory Design pattern
+		
 	@Autowired
-	@Bean(name = "productDAO")
+	@Bean(name = "ProductDAO")
 	public ProductDAO getproductDAO(SessionFactory sessionFactory) 
 	{
 	    return new ProductDAOImpl(sessionFactory);
@@ -121,8 +125,6 @@ public class Dbconfig {
 	{
 	    return new CartDAOImpl(sessionFactory);
 	}
-	
-	
 	
 	
 }

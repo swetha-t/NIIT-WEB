@@ -1,4 +1,4 @@
-package com.niit.testcases;
+/*package com.niit.testcases;
 
 import static org.junit.Assert.*;
 
@@ -13,6 +13,7 @@ import com.niit.config.Dbconfig;
 import com.niit.dao.CategoryDAO;
 import com.niit.model.Category;
 
+@Ignore
 @SuppressWarnings("unused")
 @ComponentScan("com.niit")
 public class CategoryTest {
@@ -60,3 +61,4 @@ public class CategoryTest {
 		assertNotNull("problrm in getting category by Cid", category);
 	}
 }
+*/

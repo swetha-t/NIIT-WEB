@@ -2,30 +2,19 @@ package com.backend.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Table;
-
-import org.springframework.stereotype.Component;
-
-@Component
-@Entity
-@Table(name="Cart_details")
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 public class Cart implements Serializable {
-
-	/**
+/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6030333579665223797L;
-//@Id
-@Column(name="cid")
-@GeneratedValue
-private int cartid,productid;
-private String productname,username,status;
-private int quantity;
-private double price;
+	private static final long serialVersionUID = -1876474684599266638L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+private int cartid,productid,quantity,price;
+private String usename,productname,status;
 public int getCartid() {
 	return cartid;
 }
@@ -38,17 +27,29 @@ public int getProductid() {
 public void setProductid(int productid) {
 	this.productid = productid;
 }
+public int getQuantity() {
+	return quantity;
+}
+public void setQuantity(int quantity) {
+	this.quantity = quantity;
+}
+public int getPrice() {
+	return price;
+}
+public void setPrice(int price) {
+	this.price = price;
+}
+public String getUsename() {
+	return usename;
+}
+public void setUsename(String usename) {
+	this.usename = usename;
+}
 public String getProductname() {
 	return productname;
 }
 public void setProductname(String productname) {
 	this.productname = productname;
-}
-public String getUsername() {
-	return username;
-}
-public void setUsername(String username) {
-	this.username = username;
 }
 public String getStatus() {
 	return status;
@@ -56,22 +57,5 @@ public String getStatus() {
 public void setStatus(String status) {
 	this.status = status;
 }
-public int getQuantity() {
-	return quantity;
-}
-public void setQuantity(int quantity) {
-	this.quantity = quantity;
-}
-public double getPrice() {
-	return price;
-}
-public void setPrice(double price) {
-	this.price = price;
-}
-public static long getSerialversionuid() {
-	return serialVersionUID;
-}
 
-	
-	
 }

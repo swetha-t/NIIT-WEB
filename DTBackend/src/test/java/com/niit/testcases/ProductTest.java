@@ -13,7 +13,7 @@ import com.niit.config.Dbconfig;
 import com.niit.dao.ProductDAO;
 import com.niit.model.Product;
 
-
+@Ignore
 @SuppressWarnings("unused")
 @ComponentScan("com.niit")
 public class ProductTest {

@@ -53,12 +53,12 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@SuppressWarnings("rawtypes")
 	@Transactional
-	public boolean getAllCategoryList() {
+	public List<Category> getAllCategoryList() {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.openSession();
-		Query qry = session.createQuery("from Category c");
+		Query qry = session.createQuery("from Category ");
 		List l=qry.getResultList();
-		
+	/*	
 		System.out.println("Total Number Of Records : "+l.size());
 		Iterator it = l.iterator();
 		 
@@ -71,9 +71,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 			 System.out.println("Category Description : "+c.getCatDescription());
 			 System.out.println("-------------------");
 		 } 
-
-		return true;
-	}
+*/
+		return l;
+		}
 
 	@Transactional
 	public boolean updateCategory(int Cid) {
@@ -83,7 +83,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		 Category s=(Category)o;
 		 
 		 Transaction tx = session.beginTransaction(); 
-		 s.setCatDescription("Electronics");  
+		// s.setCategory_Description("Electronics");  
 		 tx.commit();
 		 
 		 System.out.println("Object Updated successfully.....!!");

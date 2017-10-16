@@ -33,21 +33,22 @@ public class CategoryTest {
 	{
 	   Category category= new Category();
 	   category.setCatName("Andriod");
-	   category.setCatDescription("marshallow os");
+	   category.setCatDescription("kitkat os");
 	   boolean flag=categoryDAO.saveCategory(category);
-	   assertEquals("creatCategoryTest",true,flag);
+	   assertEquals("createCategoryTest",true,flag);
 	}
-		@Ignore
+	@Ignore	
 		@Test
 		public void deleteCategory()
 	{
 	   Category category= new Category();
 	   category.setCatName("Mobile accessories");
 	   category.setCatDescription("IOSsoftware");
-	   boolean flag=categoryDAO.deleteCategory(category);
-	   assertEquals("creatCategoryTest",true,flag);
+	 
+	boolean flag=categoryDAO.deleteCategory(28);
+	   assertEquals("createCategoryTest",true,flag);
 	}
-		@Ignore	
+		@Ignore
 		@Test
 		public void updateCategory()
 	{
@@ -55,10 +56,10 @@ public class CategoryTest {
 	   category.setCatName("Mobile accessories");
 	   category.setCatDescription("Andriod software");
 	   boolean flag=categoryDAO.updateCategory(category);
-	   assertEquals("creatCategoryTest",true,flag);
+	   assertEquals("createCategoryTest",true,flag);
 	}
 
-		@Ignore
+	
 		@Test
 		public void retrieveCategory()
 		{

@@ -1,55 +1,52 @@
 package com.backend.DAO;
 
+
+
 import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.backend.model.Cart;
 
-public class CartDAOImpl implements CartDAO {
 
+
+public class CartDAOImpl implements CartDAO {
 	@SuppressWarnings("unused")
 	@Autowired
-	private SessionFactory sessionFactroy;
+	private SessionFactory sessionFactory;
 	
+	@SuppressWarnings("unused")
 	@Autowired
 	private CartDAO cartDAO;
-	public CartDAO getCartDAO()
-	{
-		return cartDAO;
-	}
 	
-	public void setCartDAO(CartDAO cartDAO)
-	{
-		this.cartDAO=cartDAO;
-	}
-
 	public CartDAOImpl(SessionFactory sessionFactory)
 	{
-		this.sessionFactroy=sessionFactory;
+		this.sessionFactory=sessionFactory; 
+		
 	}
+
 	@Transactional
-	public boolean createCart(Cart cart) {
+	public boolean saveCart(Cart cart) {
 		// TODO Auto-generated method stub
-		Session session=sessionFactroy.openSession();
-		session.saveOrUpdate(cart);
+		Session session =sessionFactory.openSession();
+		session.persist(cart);
 		org.hibernate.Transaction tx=session.beginTransaction();
+		
 		tx.commit();
-		session.flush();
 		return true;
 	}
 
 	public boolean getCart(int id) {
 		// TODO Auto-generated method stub
-		Session session=sessionFactroy.openSession();
-		Query qry = session.createQuery("from Product1 p");
+		Session session=sessionFactory.openSession();
+		Query qry = session.createQuery("from Cart c");
 		List l=qry.getResultList();
 		
 		System.out.println("Total Number Of Records : "+l.size());
@@ -59,37 +56,35 @@ public class CartDAOImpl implements CartDAO {
 		 {
 			 Object o = (Object)it.next();
 			 Cart c = (Cart)o;
-			 System.out.println("Product id : "+c.getCartid());
-			 System.out.println("Product Name : "+c.getPrice());
-			 
-			 System.out.println("Product Price : "+c.getProductid());
-			 System.out.println("Product Price : "+c.getProductname());
-			 System.out.println("Product Price : "+c.getQuantity());
-			 System.out.println("Product Price : "+c.getStatus());
-			 System.out.println("Product Price : "+c.getUsername());
+			 System.out.println("cartid : "+c.getCartid());
+			 System.out.println("productid : "+c.getProductid());
+			 System.out.println("Productname Name : "+c.getProductname());
+			 System.out.println(" Username: "+c.getUsename());
 			 System.out.println("----------------------");
 		 } 
-		return true;
+
+		return true;	
 	}
 
+	@Transactional
 	public boolean updateCart(Cart cart) {
+		Session session = null;
 		// TODO Auto-generated method stub
-		Session session = sessionFactroy.openSession();
 		 Object o=session.load(Cart.class,new Integer(140));
-		 Cart c=(Cart)o;
+		 Cart s=(Cart)o;
 		 
-		 Transaction tx = (Transaction) session.beginTransaction(); 
-		 c.setQuantity(10);  // implicitly update method will be called.
+		 Transaction tx = session.beginTransaction(); 
+		 s.setProductname("Electronic Gadgets");  // implicitly update method will be called.
 		 tx.commit();
 		 
 		 System.out.println("Object Updated successfully.....!!");
-		 return true;
+		return true;
 	}
 
-	public boolean deleteCart(int id) {
+	public boolean deleteCart(Cart cart) {
+		return false;
 		// TODO Auto-generated method stub
-		sessionFactroy.getCurrentSession().createQuery("DELETE FROM Cart WHERE id = "+id).executeUpdate();
-		return true;
+	
 	}
 
 }

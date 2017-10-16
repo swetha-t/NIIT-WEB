@@ -13,6 +13,7 @@ import com.niit.config.Dbconfig;
 import com.niit.dao.UserDAO;
 import com.niit.model.UserDetails;
 
+@Ignore
 @ComponentScan("com.niit")
 public class UserDetailsTest {
 	@Autowired

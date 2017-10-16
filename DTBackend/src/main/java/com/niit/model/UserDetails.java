@@ -27,7 +27,7 @@ public class UserDetails implements Serializable{
 	private boolean Enabled;
 	private String role;
 	
-	@javax.validation.constraints.Email(message="please enter a valid email")
+	//@Email(message="please enter a valid email")
 	private String Email;
 
 	public int getUid() {

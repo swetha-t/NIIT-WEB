@@ -13,6 +13,7 @@ import com.niit.config.Dbconfig;
 import com.niit.dao.SupplierDAO;
 import com.niit.model.Supplier;
 
+@Ignore
 @ComponentScan("com.niit")
 public class SupplierTest {
 	@Autowired

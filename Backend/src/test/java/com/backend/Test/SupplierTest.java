@@ -35,7 +35,7 @@ public class SupplierTest {
 	public void createSupplierTestCase()
 	{
 		Supplier supplier= new Supplier();
-		supplier.setSupplier_name("Amazon");
+		supplier.setSupplier_name("jabong");
 			supplierDAO.createSupplier(supplier);
 			boolean flag=supplierDAO.createSupplier(supplier);
 			

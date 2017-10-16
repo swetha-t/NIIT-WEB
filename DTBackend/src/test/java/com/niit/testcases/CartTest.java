@@ -13,6 +13,7 @@ import com.niit.config.Dbconfig;
 import com.niit.dao.CartDAO;
 import com.niit.model.Cart;
 
+@Ignore
 @ComponentScan("com.niit")
 public class CartTest {
 	@Autowired

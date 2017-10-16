@@ -20,29 +20,27 @@ public class Category implements Serializable {
 	private static final long serialVersionUID = 4218574769663755268L;
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
-	
-private int Cid;
-private String CatName,CatDescription;
-public int getCid() {
-	return Cid;
+	private int category_id;
+private String category_Name,category_Description;
+
+
+public int getCategory_id() {
+	return category_id;
 }
-public void setCid(int cid) {
-	Cid = cid;
+public void setCategory_id(int category_id) {
+	this.category_id = category_id;
 }
-public String getCatName() {
-	return CatName;
+public String getCategory_Name() {
+	return category_Name;
 }
-public void setCatName(String catName) {
-	CatName = catName;
+public void setCategory_Name(String category_Name) {
+	this.category_Name = category_Name;
 }
-public String getCatDescription() {
-	return CatDescription;
+public String getCategory_Description() {
+	return category_Description;
 }
-public void setCatDescription(String catDescription) {
-	CatDescription = catDescription;
-}
-public static long getSerialversionuid() {
-	return serialVersionUID;
+public void setCategory_Description(String category_Description) {
+	this.category_Description = category_Description;
 }
 
 }

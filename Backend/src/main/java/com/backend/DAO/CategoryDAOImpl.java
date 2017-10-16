@@ -34,9 +34,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 		org.hibernate.Transaction tx=session.beginTransaction();
 		
 		tx.commit();
-		return false;
+		return true;
 	}
-	
+	@Transactional
 	public boolean updateCategory(Category category) {
 		// TODO Auto-generated method stub
 		 Session session = sessionFactory.openSession();
@@ -83,11 +83,13 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 		return true;
 	}
-
 	@Transactional
 	public boolean deleteCategory(int id) {
+		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().createQuery("DELETE FROM Category WHERE id = "+id).executeUpdate();
 		return true;
+		
 	}
+
 
 }

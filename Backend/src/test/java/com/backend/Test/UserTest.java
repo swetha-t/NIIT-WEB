@@ -1,3 +1,4 @@
+
 package com.backend.Test;
 
 import static org.junit.Assert.*;
@@ -18,7 +19,7 @@ import com.backend.model.User;
 @ComponentScan("com.backend")
 public class UserTest {
 	@Autowired
-	private static UserDAO userDao;
+	private static UserDAO userDAO;
 	
 	
 	@SuppressWarnings("resource")
@@ -30,7 +31,7 @@ public class UserTest {
 		context.register(Dbconfig.class);
 		context.refresh();
 		
-        userDao=(UserDAO) context.getBean("userDao");
+        userDAO=(UserDAO) context.getBean("userDAO");
 		
 		
 	}
@@ -46,7 +47,7 @@ public void saveUser()
     
   
     
-	boolean flag=userDao.saveUser(user);
+	boolean flag=userDAO.saveUser(user);
    assertEquals("createUserTestCase", true, flag);
 }
 }
