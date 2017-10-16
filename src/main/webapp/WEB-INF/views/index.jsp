@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="category">Category Page</a>
+<a href="category">Category Page  click here</a>
 </body>
 </html>

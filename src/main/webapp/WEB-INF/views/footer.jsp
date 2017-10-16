@@ -15,6 +15,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  -->
+ 
 </head>
 <body>
 
@@ -39,7 +40,7 @@
 			</div>
 			<div class="clearfix visible-sm-block"></div>
 			<div class="col-md-4 footer-about">
-			    <h4>About the company</h4>
+			    <h4>About company</h4>
 			    <p> 
 			    </p>
 			    <div class="social-links social-icons"><a href="https://www.facebook.com/YourStyle-565160520541773/"><i class="fa fa-facebook"></i></a><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a><a href="https://github.com/"><i class="fa fa-github"></i></a></div>

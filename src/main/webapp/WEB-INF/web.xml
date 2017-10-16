@@ -14,7 +14,7 @@
         </servlet-class>
         <load-on-startup>1</load-on-startup>
   </servlet>
-
+<!-- it maps to the dispatcher -->
   <servlet-mapping>
  	<servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
