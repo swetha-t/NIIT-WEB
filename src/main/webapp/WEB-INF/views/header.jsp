@@ -33,12 +33,13 @@
 				<li class="active"><a href="#">Home</a></li>
 				
 				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span class="caret"></span></a>
-				<ol class="dropdown-menu">
+				<ul class="dropdown-menu">
 					<li><a href="categoryPage"> Category </a></li>
+						<li><a href="supplierPage"> Supplier </a></li>
 				</li>
 				
 								
-			</ol>
+			</ul>
 			
 			<ul class="nav navbar-nav navbar-right">	
 			  

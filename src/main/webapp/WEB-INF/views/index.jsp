@@ -8,5 +8,7 @@
 </head>
 <body>
 <a href="category">Category Page  </a>
+</br>
+<a href="spage">Supplier Page  </a>
 </body>
 </html>

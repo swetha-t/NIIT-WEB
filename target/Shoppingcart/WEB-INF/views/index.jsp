@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="category">Category Page</a>
+<a href="category">Category Page  </a>
+</br>
+<a href="spage">Supplier Page  </a>
 </body>
 </html>
