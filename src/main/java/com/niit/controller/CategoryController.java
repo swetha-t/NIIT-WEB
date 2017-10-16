@@ -37,7 +37,7 @@ public class CategoryController {
 		        
 		       return "Category";
 		    }
-		     //add category
+		     
 		    @RequestMapping(value="addCategory", method=RequestMethod.POST)
 		    public String addingStrategy(@ModelAttribute("category") Category category, 
 		                                 BindingResult result,  

@@ -71,8 +71,8 @@
 					</div>
 						
 		</form:form><br/>
-		
-		<table class="table table-striped table-bordered" style="width:70%">
+		,
+		<table class="table table-striped table-bordered" style="width:80%">
 			<thead>
 			<tr>
 				<th>S. No.</th>
