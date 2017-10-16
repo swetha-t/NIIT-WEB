@@ -3,96 +3,87 @@ package com.niit.dao;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.persistence.Query;
-import javax.transaction.Transactional;
-
+import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.model.Category;
-
+@SuppressWarnings("deprecation")
 @Repository
+
 public class CategoryDAOImpl implements CategoryDAO {
+	
 	@Autowired
-	private SessionFactory sessionFactory;
-	@Autowired
-	private CategoryDAO categoryDAO;
+	SessionFactory sessionFactory;
 	
-	public CategoryDAOImpl(SessionFactory sessionFactory)
-	{
-		this.sessionFactory=sessionFactory;
-	} 
-	
-	public CategoryDAO getCategoryDAO() {
-		return categoryDAO;
-	}
-	
-	public void setCategoryDAO(CategoryDAO categoryDAO) {
-		this.categoryDAO = categoryDAO;
+	public CategoryDAOImpl(SessionFactory sessionFactory) {
+		
+		this.sessionFactory = sessionFactory;
 	}
 
+
+
+
 	
-	@Transactional 
+	@Transactional
 	public boolean saveCategory(Category category) {
-		// TODO Auto-generated method stub
-		Session session=sessionFactory.openSession();
-		session.saveOrUpdate(category);
-		Transaction tx=session.beginTransaction();
-		tx.commit();
-		return true;
-	}
-	@Transactional
-	public boolean deleteCategory(int Cid) {
-		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().createQuery("DELETE FROM Category WHERE Cid = "+Cid).executeUpdate();
-		return true;
-	}
-
-	@SuppressWarnings("rawtypes")
-	@Transactional
-	public List<Category> getAllCategoryList() {
-		// TODO Auto-generated method stub
-		Session session=sessionFactory.openSession();
-		Query qry = session.createQuery("from Category ");
-		List l=qry.getResultList();
-	/*	
-		System.out.println("Total Number Of Records : "+l.size());
-		Iterator it = l.iterator();
-		 
-		while(it.hasNext())
-		 {
-			 Object o = (Object)it.next();
-			 Category c=(Category)o;
-			 System.out.println("Category id : "+c.getCid());
-			 System.out.println("Category Name : "+c.getCatName());
-			 System.out.println("Category Description : "+c.getCatDescription());
-			 System.out.println("-------------------");
-		 } 
-*/
-		return l;
-		}
-
-	@Transactional
-	public boolean updateCategory(int Cid) {
-		// TODO Auto-generated method stub
-		Session session = sessionFactory.openSession();
-		 Object o=session.load(Category.class,new Integer(1));
-		 Category s=(Category)o;
-		 
-		 Transaction tx = session.beginTransaction(); 
-		// s.setCategory_Description("Electronics");  
-		 tx.commit();
-		 
-		 System.out.println("Object Updated successfully.....!!");
+		
+		 sessionFactory.getCurrentSession().saveOrUpdate(category);
+		
+		
+		
 		 return true;
 	}
 
-	public boolean getCategorybyId(int Cid) {
-		// TODO Auto-generated method stub
-		return false;
+
+
+	@Transactional
+	public List<Category> list() {
+		@SuppressWarnings("unchecked")
+		List<Category> listCategory = (List<Category>) sessionFactory.getCurrentSession()
+				.createCriteria(Category.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+
+		return listCategory;
 	}
+
+
+
+
+	@Transactional
+	public Category getCategoryById(int category_id) {
+		String hql = "from"+" Category"+" where id=" + category_id;
+		@SuppressWarnings("rawtypes")
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		@SuppressWarnings("unchecked")
+		List<Category> listCategory = (List<Category>) query.list();
+		
+		if (listCategory != null && !listCategory.isEmpty()) {
+			return listCategory.get(0);
+		}
+		
+		return null;
+	}
+
+
+
+	@Transactional
+	public Category removeCategoryById(int category_id) {
+		Category CategoryToDelete = new Category();
+		CategoryToDelete.setCategory_id(category_id);
+		sessionFactory.getCurrentSession().delete(CategoryToDelete);
+		return CategoryToDelete;
+	}
+
+
+
+
+	
 
 }
