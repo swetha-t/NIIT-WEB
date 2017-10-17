@@ -23,13 +23,6 @@ public class SupplierController {
 			@Autowired
 			SupplierDAO supplierDAO;
 		
-			 @RequestMapping(value="spage",  method=RequestMethod.GET)
-			 public String showSupplierPage(@ModelAttribute("supplier_id")Supplier supplier,Model model){
-				 
-				model.addAttribute("supplier", new Supplier());
-				System.out.println("Inside Index Mapping");
-				return "Supplier";
-			}
 		 @RequestMapping(value="supplier",  method=RequestMethod.GET)
 			    public String listOfSupplier(@ModelAttribute("supplier") Supplier supplier,  BindingResult result,  
 		                Model model, 
@@ -39,11 +32,11 @@ public class SupplierController {
 			        model.addAttribute("supplierList", supplierList);
 			       // model.addAttribute("SupplierPageClicked", "true");
 			        
-			       return "Supplier";
+			       return "SupplierPage";
 			 }
 			     
 			    @RequestMapping(value="addSupplier", method=RequestMethod.POST)
-			    public String addingStrategy(@ModelAttribute("supplier") Supplier supplier, 
+			    public String addingSupplierStrategy(@ModelAttribute("supplier") Supplier supplier, 
 			                                 BindingResult result,  
 			                                 Model model, 
 			                                 RedirectAttributes redirectAttrs) {

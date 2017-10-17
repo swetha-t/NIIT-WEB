@@ -21,11 +21,7 @@ public class CategoryController {
 		@Autowired
 		CategoryDAO categoryDAO;
 	
-		@RequestMapping({"/","index"})
-		public String showIndexPage(){
-			System.out.println("Inside Index Mapping");
-			return "index";
-		}
+	
 		 @RequestMapping(value="category",  method=RequestMethod.GET)
 		    public String listOfCategory(@ModelAttribute("category") Category category,  BindingResult result,  
 	                Model model, 
@@ -35,11 +31,11 @@ public class CategoryController {
 		        model.addAttribute("categoryList", categoryList);
 		       // model.addAttribute("CategoryPageClicked", "true");
 		        
-		       return "Category";
+		       return "CategoryPage";
 		    }
 		     
 		    @RequestMapping(value="addCategory", method=RequestMethod.POST)
-		    public String addingStrategy(@ModelAttribute("category") Category category, 
+		    public String addingcategoryStrategy(@ModelAttribute("category") Category category, 
 		                                 BindingResult result,  
 		                                 Model model, 
 		                                 RedirectAttributes redirectAttrs) {
