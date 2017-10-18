@@ -12,18 +12,32 @@ import org.springframework.stereotype.Component;
 @Entity
 @Component
 public class Product implements Serializable{
-/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 9134854981953519739L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	
 private int id,quantity;
-private String name;
+private String name,description;
 private double price;
-private String p_category;
+private int category_id;
+private int supplier_id;
+private boolean instock;
+private String image;
+
+public String getImage() {
+	return image;
+}
+public void setImage(String image) {
+	this.image = image;
+}
+public boolean isInstock() {
+	return instock;
+}
+public void setInstock(boolean instock) {
+	this.instock = instock;
+}
 public int getId() {
 	return id;
 }
@@ -42,21 +56,31 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
+public String getDescription() {
+	return description;
+}
+public void setDescription(String description) {
+	this.description = description;
+}
 public double getPrice() {
 	return price;
 }
 public void setPrice(double price) {
 	this.price = price;
 }
-public String getP_category() {
-	return p_category;
+public int getCategory_id() {
+	return category_id;
 }
-public void setP_category(String p_category) {
-	this.p_category = p_category;
+public void setCategory_id(int category_id) {
+	this.category_id = category_id;
 }
-public static long getSerialversionuid() {
-	return serialVersionUID;
+public int getSupplier_id() {
+	return supplier_id;
+}
+public void setSupplier_id(int supplier_id) {
+	this.supplier_id = supplier_id;
+}
+
 }
 
 
-}

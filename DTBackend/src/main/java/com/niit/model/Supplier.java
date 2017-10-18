@@ -16,32 +16,24 @@ import org.springframework.stereotype.Component;
 @Table(name="Supplier")
 public class Supplier implements Serializable{
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 3216823736209703953L;
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	
-	private int SupId;
-private String SupName;
-
-public int getSupId() {
-	return SupId;
+	@GeneratedValue
+	private int supplier_id;
+   private String supplier_Name;
+   
+public int getSupplier_id() {
+	return supplier_id;
 }
-public void setSupId(int supId) {
-	SupId = supId;
+public void setSupplier_id(int supplier_id) {
+	this.supplier_id = supplier_id;
 }
-public String getSupName() {
-	return SupName;
+public String getSupplier_Name() {
+	return supplier_Name;
 }
-public void setSupName(String supName) {
-	SupName = supName;
+public void setSupplier_Name(String supplier_Name) {
+	this.supplier_Name = supplier_Name;
 }
-public static long getSerialversionuid() {
-	return serialVersionUID;
-}
-
-	
-	
 }

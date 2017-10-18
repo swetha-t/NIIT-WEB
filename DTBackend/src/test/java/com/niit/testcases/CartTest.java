@@ -1,4 +1,4 @@
-package com.niit.testcases;
+/*package com.niit.testcases;
 
 import static org.junit.Assert.*;
 
@@ -55,3 +55,4 @@ public class CartTest {
 		assertTrue("problem in adding CartItem",cartDAO.updateCart(cart));
 	}
 }
+*/

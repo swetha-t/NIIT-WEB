@@ -14,9 +14,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Category implements Serializable {
 
-	/**s
-	 * 
-	 */
 	private static final long serialVersionUID = 4218574769663755268L;
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)

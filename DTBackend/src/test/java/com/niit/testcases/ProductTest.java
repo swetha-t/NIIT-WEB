@@ -1,4 +1,4 @@
-package com.niit.testcases;
+/*package com.niit.testcases;
 
 import static org.junit.Assert.*;
 
@@ -42,37 +42,12 @@ public class ProductTest {
 		
 		product.setName("Iphone 6s");
 		product.setQuantity(4);
-		product.setP_category("Mobile Accessories");
+	
 		product.setPrice(34989.05);
-		boolean flag=productDAO.createProduct(product);
-		assertEquals("createProductTestCase", true, flag);
-	}
-	
-	@Ignore
-	@Test
-	public void updateProduct()
-	{
-		Product product = new Product();
-		product.setQuantity(5);
-		boolean flag=productDAO.updateProduct(44);
-		assertEquals("createProductTestCase", true, flag);
-	}
-	
-	@Ignore
-	@Test
-	public void deleteProduct()
-	{
-		Product product = new Product();
-		boolean flag=productDAO.deleteProduct(45);
+		boolean flag=productDAO.saveProduct(product);
 		assertEquals("createProductTestCase", true, flag);
 	}
 	
 	
-	@Test
-	public void retrieveProduct()
-	{
-		Product product=new Product();
-		boolean listproduct=productDAO.getProduct(1);
-		assertNotNull("problrm in getting product by id", product);
-	}
 }
+*/

@@ -1,36 +1,35 @@
 package com.niit.model;
 
-import java.io.Serializable;
 
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class Cart implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 9017492617429594727L;
+public class Cart{
+	@Column(name="cart_id")
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int Cid;
+	@GeneratedValue
+	private int id;
+	
 	private int productid;
-	private String productname;
-	private double price;
-	private int quantity;
-	private String username;
+	private String productName;
+	private double productPrice;
+	private int productQuantity;
+	private double subTotal;
 	private String status;
-	public int getCid() {
-		return Cid;
+	private int userId;
+	public int getId() {
+		return id;
 	}
-	public void setCid(int cid) {
-		Cid = cid;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public int getProductid() {
 		return productid;
@@ -38,29 +37,29 @@ public class Cart implements Serializable {
 	public void setProductid(int productid) {
 		this.productid = productid;
 	}
-	public String getProductname() {
-		return productname;
+	public String getProductName() {
+		return productName;
 	}
-	public void setProductname(String productname) {
-		this.productname = productname;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
-	public double getPrice() {
-		return price;
+	public double getProductPrice() {
+		return productPrice;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public void setProductPrice(double productPrice) {
+		this.productPrice = productPrice;
 	}
-	public int getQuantity() {
-		return quantity;
+	public int getProductQuantity() {
+		return productQuantity;
 	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setProductQuantity(int productQuantity) {
+		this.productQuantity = productQuantity;
 	}
-	public String getUsername() {
-		return username;
+	public double getSubTotal() {
+		return subTotal;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setSubTotal(double subTotal) {
+		this.subTotal = subTotal;
 	}
 	public String getStatus() {
 		return status;
@@ -68,9 +67,10 @@ public class Cart implements Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public int getUserId() {
+		return userId;
 	}
-	
-	
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 }

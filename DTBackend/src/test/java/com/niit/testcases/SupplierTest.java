@@ -1,4 +1,4 @@
-package com.niit.testcases;
+/*package com.niit.testcases;
 
 import static org.junit.Assert.*;
 
@@ -36,7 +36,7 @@ public class SupplierTest {
 	{
 		Supplier supplier = new Supplier();
 		supplier.setSupName("prime");
-		boolean flag=supplierDAO.createSupplier(supplier);
+		boolean flag=supplierDAO.saveSupplier(supplier);
 		assertEquals("createSupplierTestCase", true, flag);
 	}
 	
@@ -45,15 +45,16 @@ public class SupplierTest {
 	public void updateSupplier()
 	{
 		Supplier supplier = new Supplier();
-		boolean flag=supplierDAO.updateSupplier(supplier);
-		assertEquals("createSupplierTestCase", true, flag);
+		//boolean flag=supplierDAO.getSupplierById(supplier_id);
+		//assertEquals("createSupplierTestCase", true, flag);
 	}
 	
 	@Ignore
 	@Test
 	public void deleteSupplier()
 	{
-		boolean flag=supplierDAO.deleteSupplier(142);
-		assertEquals("createSupplierTestCase", true, flag);
+		//boolean flag=supplierDAO.removeSupplierById(140);
+	//	assertEquals("createSupplierTestCase", true, flag);
 	}
 }
+*/
