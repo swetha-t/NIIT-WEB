@@ -37,6 +37,7 @@ public class SupplierController {
 			     
 			    @RequestMapping(value="addSupplier", method=RequestMethod.POST)
 			    public String addingSupplierStrategy(@ModelAttribute("supplier") Supplier supplier, 
+			    		
 			                                 BindingResult result,  
 			                                 Model model, 
 			                                 RedirectAttributes redirectAttrs) {
@@ -52,7 +53,7 @@ public class SupplierController {
 				@RequestMapping("editsupplier/{supplier_id}")
 				public String editSupplier(@PathVariable("supplier_id") int supplier_id, Model model,RedirectAttributes attributes) {
 					System.out.println("editSupplier");
-					attributes.addFlashAttribute("Supplier", this.supplierDAO.getSupplierById(supplier_id));
+					attributes.addFlashAttribute("supplier", this.supplierDAO.getSupplierById(supplier_id));
 					return "redirect:/supplier";
 				}
 				@RequestMapping(value ="removesupplier/{supplier_id}")

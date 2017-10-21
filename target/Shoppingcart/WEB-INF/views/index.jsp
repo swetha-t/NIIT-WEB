@@ -19,6 +19,8 @@
 </style>
 </head>
 <body>
+
+
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -52,12 +54,13 @@
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Admin <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                
                             <li><a href="category">Category action</a></li>
                             <li><a href="supplier">Supplier action</a></li>
                             <li><a href="product">Product action</a></li>
                             <li class="divider"></li>
-                            <!-- <li><a href="logout">Logout</a></li> -->
-                         
+                          
+                                 <li> <a href="<c:url value="j_spring_security_logout" />">Log In</a></li>
                               <li> <a href="<c:url value="j_spring_security_logout" />">Logout</a></li>
                             
                            
@@ -65,6 +68,7 @@
                         </ul>
                     </li>
                 </ul>
+              
             </div><!-- /.navbar-collapse -->
         </div>
     </nav>
