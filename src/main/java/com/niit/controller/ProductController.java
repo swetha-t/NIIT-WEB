@@ -3,6 +3,7 @@ package com.niit.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 
@@ -54,7 +55,7 @@ public class ProductController {
 		       return "ProductPage";
 		    }
 		     
-		    @RequestMapping(value="addProduct", method=RequestMethod.POST)
+		 /*   @RequestMapping(value="addProduct", method=RequestMethod.POST)
 		    public String addingProductStrategy(@ModelAttribute("product") Product product, 
 		                                 BindingResult result,  
 		                                 Model model, 
@@ -64,10 +65,10 @@ public class ProductController {
 		            //String message = "Product" + Product.getid()+ " was successfully added";
 		          //  model.addAttribute("message", message);
 		            return "redirect:/product";
-		        
-		    }	
+		        */
+		    	
 		    
-		    @RequestMapping(value="/saveProduct")
+		  /*  @RequestMapping(value="/saveProduct")
 			public String updateproduct(@ModelAttribute("product") Product product,HttpServletRequest request,Model m,
 					@RequestParam("file") MultipartFile file){
 				
@@ -119,8 +120,17 @@ public class ProductController {
 					return "You failed to upload " + name+ " because the file was empty.";
 				}
 			}
+*/
+@RequestMapping(value="addProduct",method = RequestMethod.POST)
+public String addItem(@ModelAttribute("product") Product p,@RequestParam("file") MultipartFile file,HttpServletRequest request) throws IOException{
+	p.setImage(file.getBytes());
+	this.productDAO.saveProduct(p);
+	return "redirect:product";
+	
+}
 
-			
+
+
 			@RequestMapping("editproduct/{id}")
 			public String editProduct(@PathVariable("id") int id, Model model,RedirectAttributes attributes) {
 				System.out.println("editProduct");

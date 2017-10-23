@@ -16,9 +16,9 @@
 <body>
 	<jsp:include page="header.jsp" /> 
 
-
+	
 <div class="container">
-	      <form:form commandName="product" method="post" action="addProduct">
+	      <form:form commandName="product" method="post" action="addProduct" enctype="multipart/form-data">
 				<p><font color="red">${errorMessage}</font></p>		
 
 <h3 align="center">

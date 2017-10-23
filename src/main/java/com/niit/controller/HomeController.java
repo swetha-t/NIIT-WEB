@@ -64,7 +64,7 @@ public class HomeController {
 	    public String login(@RequestParam(value="error",required=false) String error,
 	    		@RequestParam(value="logout",required=false) String logout,
 	    		Model model){
-	    	if(error==null)
+	    	if(error!=null)
 	    		model.addAttribute("error","Invalid Username and Password.. Please enter valid username and password");
 	    	if(logout!=null)
 	    		model.addAttribute("logout","Loggedout successfully");
@@ -108,12 +108,12 @@ public class HomeController {
 	 }
 
 			
-	   	/*	@RequestMapping(value = "register")
+	   	@RequestMapping(value = "register")
 			public String DisplayRegister(Model mv) {
 				mv.addAttribute("user", new User());
 				mv.addAttribute("IfRegisterClicked", "true");
-				return "WelcomePage";
-			}*/
+				return "RegistrationPage";
+			}
 
 			@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 			public String UserRegister(@ModelAttribute("user") User user,RedirectAttributes attributes) {
@@ -133,7 +133,7 @@ public class HomeController {
 			}
 			
 
-			  @RequestMapping(value ="ShowProduct/{id}" )
+			@RequestMapping(value ="ShowProduct/{id}" )
 			    public String ShowProduct(@PathVariable("id") int id,RedirectAttributes attributes,Model m) {
 			        m.addAttribute("UserClickedshowproduct", "true");
 			        m.addAttribute("productList", productDAO.getProductById(id));
