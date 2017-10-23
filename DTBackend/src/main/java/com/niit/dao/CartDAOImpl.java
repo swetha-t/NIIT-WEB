@@ -3,7 +3,6 @@ package com.niit.dao;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.hibernate.Criteria;
@@ -12,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -39,7 +39,7 @@ public class CartDAOImpl implements CartDAO {
 		@SuppressWarnings("rawtypes")
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
-		List<Cart> list = (List<Cart>) ((org.hibernate.query.Query) query).list();
+		List<Cart> list = (List<Cart>)  query.list();
 		if (list!= null && !list.isEmpty()) {
 			return list.get(0);
 		}

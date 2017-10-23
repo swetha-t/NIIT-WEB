@@ -1,13 +1,11 @@
 package com.niit.dao;
 
-
-
-
 import java.util.List;
 
-import javax.persistence.Query;
+
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -41,7 +39,9 @@ public class ProductDAOImpl implements ProductDAO {
 		List<Product> product = sessionFactory.getCurrentSession().createCriteria(Product.class).list();
 		return product;
 	}
-
+	
+	
+	@SuppressWarnings({ "unchecked" })
 	@Transactional
 	public Product getProductById(int product_id) {
 		String hql = "from" + " Product" + " where id=" + product_id;
@@ -49,7 +49,7 @@ public class ProductDAOImpl implements ProductDAO {
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
 		@SuppressWarnings("unchecked")
-		List<Product> listProduct = (List<Product>) ((ProductDAOImpl) query).list();
+		List<Product> listProduct = (List<Product>) query.list();
 
 		if (listProduct != null && !listProduct.isEmpty()) {
 			return listProduct.get(0);
@@ -57,13 +57,19 @@ public class ProductDAOImpl implements ProductDAO {
 
 		return null;
 	}
+
 	@Transactional
-	public Product removeProducyById(int product_id) {
+	public Product removeProductById(int product_id) {
 		Product ProductToDelete = new Product();
 		ProductToDelete.setId(product_id);
 		sessionFactory.getCurrentSession().delete(ProductToDelete);
 		return ProductToDelete;
+
 	}
+	
+	
+	
+	
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Product> getProductByCategory(int category_id) {
@@ -91,18 +97,32 @@ public class ProductDAOImpl implements ProductDAO {
 		return catproducts;
 	}
 
-	@Transactional
-	public List<Product> homeList() {
-		String hql="from Product ORDER BY RAND()";
-		@SuppressWarnings("rawtypes")
-		Query query=sessionFactory.getCurrentSession().createQuery(hql).setMaxResults(6);
-		@SuppressWarnings("unchecked")
-		List<Product> listProduct = (List<Product>) ((ProductDAOImpl) query).list();
-		if (listProduct != null && !listProduct.isEmpty()) {
-			return listProduct;
-		}
-		return null;
+	
+
+	
+@Transactional
+	public Product getItem(int id) {
+	Product product=sessionFactory.getCurrentSession().get(Product.class, id);
+	
+	 return product;
+    
 	}
+
+@Transactional
+public List<Product> homeList() {
+	/*String hql="from Product ORDER BY RAND()";
+	@SuppressWarnings("rawtypes")
+	Query query=sessionFactory.getCurrentSession().createQuery(hql).setMaxResults(6);
+	@SuppressWarnings("unchecked")
+	List<Product> listProduct = (List<Product>) ((ProductDAOImpl) query).list();
+	if (listProduct != null && !listProduct.isEmpty()) {
+		return listProduct;}
+	*/
+	return null;
+}
+
+
+
 
 	
 

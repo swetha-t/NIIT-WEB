@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import org.springframework.stereotype.Component;
 
@@ -24,12 +25,13 @@ private double price;
 private int category_id;
 private int supplier_id;
 private boolean instock;
-private String image;
+@Lob
+private byte[] image;
 
-public String getImage() {
+public byte[] getImage() {
 	return image;
 }
-public void setImage(String image) {
+public void setImage(byte[] image) {
 	this.image = image;
 }
 public boolean isInstock() {
