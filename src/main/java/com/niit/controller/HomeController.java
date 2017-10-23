@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.niit.dao.CartDAO;
 import com.niit.dao.CategoryDAO;
 import com.niit.dao.ProductDAO;
 import com.niit.dao.SupplierDAO;
@@ -49,13 +50,20 @@ public class HomeController {
 	@Autowired
 	UserDAO userDAO;
 	
+	@Autowired
+	CartDAO cartDAO;
+	
+	@Autowired
+	HttpSession session;
+	
 	 @RequestMapping(value="/",  method=RequestMethod.GET)
 	    public String homePage(HttpSession session,Model m)
 	    {
 	    	session.setAttribute("categoryList", categoryDAO.list());
 	    	session.setAttribute("ProductList",productDAO.list());
 	    	session.setAttribute("HomeList", productDAO.homeList());
-	    	//m.addAttribute("UserClickedshowproduct", "true");
+	    	session.setAttribute("CartList",cartDAO.listCart());
+	    	m.addAttribute("UserClickedshowproduct", "true");
 	    	/*session.setAttribute("ListProduct", productDAO.getProductByCategoryID(id));*/
 			return "index";
 	    }

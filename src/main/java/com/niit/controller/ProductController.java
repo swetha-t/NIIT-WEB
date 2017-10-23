@@ -135,11 +135,11 @@ public String addItem(@ModelAttribute("product") Product p,@RequestParam("file")
 			public String editProduct(@PathVariable("id") int id, Model model,RedirectAttributes attributes) {
 				System.out.println("editProduct");
 				attributes.addFlashAttribute("product", this.productDAO.getProductById(id));
-				return "redirect:/category";
+				return "redirect:/product";
 			}
 			@RequestMapping(value ="removeproduct/{id}")
 			public String removeProduct(@PathVariable("id") int id,RedirectAttributes attributes) throws Exception {
-				productDAO.removeProducyById(id);
+				productDAO.removeProductById(id);
 				attributes.addFlashAttribute("DeleteMessage", "Product has been deleted Successfully");
 				return "redirect:/product";
 			}	    

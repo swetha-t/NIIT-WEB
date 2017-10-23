@@ -39,7 +39,7 @@
                      
                         <td class="col-sm-8 col-md-6">
                         <div class="thumbnail">
-                     <!--     <a class="thumbnail pull-left" href="#"> <img src="/DTProjectBackEnd/imageDisplay?id=${cart.productid}" style="height:50px;height: 50px" > </a> -->
+                         <a class="thumbnail pull-left" href="#"> <img src="/Shoppingcart/imageDisplay?id=${cart.productid}" style="height:50px;height: 50px" > </a> -->
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">${cart.productName}</a></h4>
                                 <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
@@ -108,4 +108,4 @@
 </body>
 <jsp:include page="footer.jsp" /> 
 
-</html>
+</html>	
