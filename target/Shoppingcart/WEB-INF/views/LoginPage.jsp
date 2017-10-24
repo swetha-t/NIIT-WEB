@@ -15,6 +15,7 @@
   
 </head>
 <body>
+<jsp:include page="header.jsp" /> 
 <form  method="post" action="j_spring_security_check" class="form-horizontal" >
 
 	<div class="form-group">
@@ -48,3 +49,35 @@
 		</div>
 	</div>
 </form>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<jsp:include page="footer.jsp" />
+ 
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

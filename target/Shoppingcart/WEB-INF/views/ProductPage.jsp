@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Product Page</title>
+<title>Category Page</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="resources/css/Pretty-Footer.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,7 +16,7 @@
 <body>
 	<jsp:include page="header.jsp" /> 
 
-	
+
 <div class="container">
 	      <form:form commandName="product" method="post" action="addProduct" enctype="multipart/form-data">
 				<p><font color="red">${errorMessage}</font></p>		
@@ -41,6 +41,7 @@
 	</div>
 
 
+
 	<div class="form-group">
 		<label for="category Name" class="col-xs-4 control-label">Product Name</label>
 		<div class="col-xs-4">
@@ -51,9 +52,10 @@
 	<div class="form-group">
 		<label for="code" class="col-xs-4 control-label">Product Description</label>
 		<div class="col-xs-4">
-			<form:input name="id"  path="description" placeholder="Product Description" maxlength="15" class="form-control" />
+			<form:input name="description" id="description" path="description" placeholder="Product Description" maxlength="15" class="form-control" />
 		</div>
 	</div>
+
 
 
 	<div class="form-group">
@@ -79,44 +81,48 @@
 		</div>
 	</div>
  
+	<!-- 	List of Category	 -->
+
 	
 	<div class="form-group">
 		<label for="Product Category" class="col-xs-4 control-label">Product Category</label>
 		<div class="col-xs-4">		
-		
 	<form:select class="form-control" path="category_id" required="true">
 	<c:forEach items="${categoryList}" var="category">
-	<form:option class="form-control" value="${category.category_id}">${category.category_Name} </form:option>
+	<form:option class="form-control" value="${category.category_id}">${category.category_Name}	     </form:option>
 	</c:forEach>
 	</form:select>
 		</div>
 	</div>
 	
 	<!--  List of Supplier  -->
-
+	
 		<div class="form-group">
 		<label for="Product Supplier" class="col-xs-4 control-label">Product Supplier</label>
 		<div class="col-xs-4">		
 	<form:select class="form-control" path="supplier_id" required="true">
 	<c:forEach items="${supplierList}" var="supplier">
-	<form:option class="form-control" value="${supplier.supplier_id}">${supplier.supplier_Name}</form:option>
+	<form:option class="form-control" value="${supplier.supplier_id}">${supplier.supplier_Name}	     </form:option>
 	</c:forEach>
 	</form:select>
 		</div>
-	   </div>
+	</div>
 	
-<div class="form-group">
+	<div class="form-group">
 		<label for="Product Image" class="col-xs-4 control-label">Product Image</label>
 		<div class="col-xs-4">
 		<input type="file" name="file" class="form-control" />
 		</div>
 	</div>
-	
+
+
 
 	<div class="form-group">  
 	<label for="code" class="col-xs-4 control-label"></label>
 		
 		<div class="col-xs-4">
+		
+			
 		<c:if test="${product.id==0}">
 		<input type="submit" value="Add Product" id="btn-add" class="btn btn-primary" >
 		
@@ -139,12 +145,13 @@
 					<th width="2%">product Name</th>
 					<th width="2%">product Description</th>
 					<th width="2%">Product Price</th>
+					<th width="2%">Product Quantity</th>
 					<th width="2%">Product InStock</th>
 					<th width="2%">Product Category</th>
 					<th width="2%">Product Supplier</th>
 					<th width="2%">Product Image</th>
 					<th width="2%">Product Action</th>
-					
+				
 				</tr>
 			</thead>
 			<tbody>
@@ -155,17 +162,17 @@
 						<td><c:out value="${product.name}" /></td>
 						<td><c:out value="${product.description}" /></td>
 						<td><c:out value="${product.price}" /></td>
+						<td><c:out value="${product.quantity}" /></td>
 						<td><c:out value="${product.instock}" /></td>
 						<td><c:out value="${product.category_id}" /></td>
 						<td><c:out value="${product.supplier_id}" /></td>
-							<td><c:out value="${product.image}" /></td>
-						
+						<td><c:out value="${product.image}" /></td>
 						<td><nobr>
 <a class="btn btn-primary" href="editproduct/${product.id}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
 
-<a class="btn btn-primary"  href="removeproduct/${product.id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
+<a class="btn btn-primary"  href="removeproduct/${product.id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+								</a>
 
-								
 							</nobr></td>
 					</tr>
 				</c:forEach>
