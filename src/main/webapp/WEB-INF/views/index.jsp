@@ -17,7 +17,7 @@
     	margin: 20px;
     }
 </style>
-<%-- <jsp:include page="showProduct.jsp" />  --%>
+<%-- <jsp:include page="showProduct.jsp" /> --%> 
 
 </head>
 <body>
@@ -51,27 +51,33 @@ ${ExistingMessage}
                         </ul>
                     </li>
                 </ul>
+                   <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="viewcart">Cart</a></li>
+               </ul>   
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"> <span class="glyphicon glyphicon-user"></span>Sign Up <b class="caret"></b></a>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Sign Up <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          <p><a href="login"><span  class="glyphicon glyphicon-log-in"></span>Log in </a></p>
-                          <p><a href="register"> <span class="glyphicon glyphicon-user"></span>Registration</a></p>
-          
-                        
-      <p><a href="<c:url value="j_spring_security_logout"/>"><span  class="glyphicon glyphicon-log-out"></span>LogOut </a></p>               
- 
- 
-  
-                          
+                            <li><a href="login">Login action</a></li>
+                            <li><a href="signup">Registration action</a></li>
+                            <li class="divider"></li>
+                            <!-- <li><a href="logout">Logout</a></li> -->
+                         
+                              <li> <a href="<c:url value="j_spring_security_logout" />">Logout</a></li>
+                            
+                           
+                            
                         </ul>
                     </li>
                 </ul>
-                    
-            </div>
+                   
+                   
+            </div><!-- /.navbar-collapse -->
         </div>
     </nav>
 </div>
+<!-- =================================== -->
 
 
 <div class="container">
@@ -89,7 +95,6 @@ ${ExistingMessage}
       <img class="img-rounded" class="img-responsive center-block"
       src="C:\Users\swetha\Pictures\Saved Pictures\1.jpg" style="width:100%" "height="50%">
     </div>
-
     <div class="item">
     <img class="img-rounded" class="img-responsive center-block"
       src="C:\Users\swetha\Pictures\Saved Pictures\2.png" style="width:100%" "height="50%">
@@ -101,7 +106,6 @@ ${ExistingMessage}
     </div>
  
   </div>
-
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -112,13 +116,28 @@ ${ExistingMessage}
     <span class="sr-only">Next</span>
   </a>
 </div>
+<!-- ---------------------- -->
 
 
 
 
-<!-- =================================-->
 
-<div class="container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="container">
 		<c:forEach items="${ProductList}" var="product">
 			<h2 style="color: red">
 				<c:out value="${product.name }" />
@@ -127,7 +146,7 @@ ${ExistingMessage}
 
 			<div class="pi-img-wrapper">
 										<img src="/Shoppingcart/myImage/imageDisplay?id=${product.id}"
-											class="img-responsive" style="width: 100px; height: 100px">
+											class="img-responsive" style="width: 180px; height: 250px">
 										<div>				</div>
 			</div>
 
@@ -162,11 +181,9 @@ ${ExistingMessage}
 				</div>
 			</div>
 		</c:forEach>
-	</div> 
 	</div>
-	</br>
-	</br>
+
+
 
 </body>
-
-</html>   
+</html>  

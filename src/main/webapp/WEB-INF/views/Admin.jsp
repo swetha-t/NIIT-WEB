@@ -45,9 +45,12 @@
                             <li><a href="#">Sent Items</a></li>
                             <li class="divider"></li>
                             <li><a href="#">Trash</a></li>
+               
                         </ul>
                     </li>
+                    <li><a href="cart">Cart</a></li>
                 </ul>
+                
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Admin <b class="caret"></b></a>
@@ -55,7 +58,7 @@
                             <li><a href="category">Category action</a></li>
                             <li><a href="supplier">Supplier action</a></li>
                             <li><a href="product">Product action</a></li>
-                         <!--      <li><a href="product">Cart action</a></li> -->
+                             <!-- <li><a href="product">Cart action</a></li>  -->
                             <li class="divider"></li>
                          
                          

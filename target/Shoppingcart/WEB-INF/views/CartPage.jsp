@@ -96,9 +96,10 @@
                         
                         </td>
                         <td>
-                        <button type="button" class="btn btn-success">
-                            Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                     
+                      <a href="CheckOut" class="btn btn-default">
+                             <span class="glyphicon glyphicon-play"></span>CheckOut</a>
+                       </td>
                     </tr>
                 </tbody>
             </table>

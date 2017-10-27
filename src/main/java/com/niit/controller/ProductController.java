@@ -96,7 +96,6 @@ public class ProductController {
 				if (!file.isEmpty()) {
 					try {
 						byte[] bytes = file.getBytes();
-
 						// Creating the directory to store file
 						String rootPath = System.getProperty("catalina.base");
 						File dir = new File(rootPath +"webapp/Shoppingcart/resources/iphone_x.jpeg");
@@ -109,9 +108,7 @@ public class ProductController {
 								new FileOutputStream(serverFile));
 						stream.write(bytes);
 						stream.close();
-
 						System.out.println("Server File Location="	+ serverFile.getAbsolutePath());
-
 						return  name;
 					} catch (Exception e) {
 						return "You failed to upload " + name + " => " + e.getMessage();

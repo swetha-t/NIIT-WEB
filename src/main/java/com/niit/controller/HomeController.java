@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.niit.dao.CartDAO;
 import com.niit.dao.CategoryDAO;
+import com.niit.dao.OrderDAO;
 import com.niit.dao.ProductDAO;
 import com.niit.dao.SupplierDAO;
 import com.niit.dao.UserDAO;
@@ -54,6 +55,9 @@ public class HomeController {
 	CartDAO cartDAO;
 	
 	@Autowired
+	OrderDAO orderDAO;
+	
+	@Autowired
 	HttpSession session;
 	
 	 @RequestMapping(value="/",  method=RequestMethod.GET)
@@ -63,6 +67,7 @@ public class HomeController {
 	    	session.setAttribute("ProductList",productDAO.list());
 	    	session.setAttribute("HomeList", productDAO.homeList());
 	    	session.setAttribute("CartList",cartDAO.listCart());
+	    	session.setAttribute("OrderList",orderDAO.listOrder());
 	    	m.addAttribute("UserClickedshowproduct", "true");
 	    	/*session.setAttribute("ListProduct", productDAO.getProductByCategoryID(id));*/
 			return "index";
@@ -162,7 +167,20 @@ public class HomeController {
 		    System.out.println("Listed the product by Category ID:"+id);
 		    return "redirect:/";
 		}
-
+		
+		@RequestMapping(value="/myorders")
+		public String myOrders(Model model,HttpSession session)
+		{
+			model.addAttribute("users", new User());
+			int userid = (Integer) session.getAttribute("userid");
+			
+			model.addAttribute("od", orderDAO.getOrderDetailsByUser(userid));
+					
+			model.addAttribute("total",orderDAO.getTotal(userid));
+			
+			return "myorders";
+			
+		}
 		
 		
 	 }

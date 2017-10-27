@@ -24,7 +24,9 @@
 		<div class="row">
 			<div class="col-md-4 col-sm-6 footer-navigation">
 			    <h3><a href="#"><span> </span></a></h3>
-			    <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Terms and Conditions</a><strong> · </strong><a href="#">Privacy Policy</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">FAQ</a><strong> · </strong><a href="#">ContactUs</a></p>
+			    <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Terms and Conditions</a><strong> 
+			    · </strong><a href="#">Privacy Policy</a><strong> · </strong><a href="#">About</a><strong> 
+			    · </strong><a href="#">FAQ</a><strong> · </strong><a href="#">ContactUs</a></p>
 			    <p class="company-name"></p>
 			</div>
 			<div class="col-md-4 col-sm-6 footer-contacts">
