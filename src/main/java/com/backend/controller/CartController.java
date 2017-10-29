@@ -59,7 +59,8 @@ public class CartController {
 			cartDAO.saveProductToCart(item);
 			attributes.addFlashAttribute("ExistingMessage",  p.getName() +"is already exist");
 	
-			return "redirect:/";
+			return "CartPage";
+		/*	return "redirect:/";*/
 		} else {
 			Cart item = new Cart();
 			Product p = productDAO.getProductById(id);
@@ -153,6 +154,14 @@ public String deleteorder(@PathVariable("id") int id, HttpSession session) {
 public String continueshopping()
 {
 return "loggedin";	
+
+}
+
+
+@RequestMapping("Checkout")
+public String checkout()
+{
+return "CheckOut";	
 
 }
 

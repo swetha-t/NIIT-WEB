@@ -103,18 +103,12 @@ span.psw {
 		</div>
 	</div>
 </form>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <jsp:include page="footer.jsp" />
  
 </body>

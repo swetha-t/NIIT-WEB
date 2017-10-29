@@ -59,7 +59,7 @@ public class CheckoutController {
 	
 	}
 	
-	/*
+	
 	@RequestMapping(value="/CodInvoice",method=RequestMethod.POST)
 	public String CodInvoicePage(@ModelAttribute ("card") Card card,HttpSession session, Model model)
 	{
@@ -78,6 +78,6 @@ public class CheckoutController {
 	
 	
 	}
-*/
+
 }
 

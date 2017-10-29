@@ -1,51 +1,99 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false"%>
- <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
- <!-- 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Online Site for all your beauty needs - YourStyle.Com</title>
- <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="resources/css/Pretty-Footer.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- -->
-</head>
-<body>
 
-<footer>
-		<div class="container">
-		<div class="row">
-			<div class="col-md-4 col-sm-6 footer-navigation">
-			    <h3><a href="#"><span> </span></a></h3>
-			    <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Terms and Conditions</a><strong> · </strong><a href="#">Privacy Policy</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">FAQ</a><strong> · </strong><a href="#">ContactUs</a></p>
-			    <p class="company-name"></p>
-			</div>
-			<div class="col-md-4 col-sm-6 footer-contacts">
-			    <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
-			        <p><span class="new-line-span"></span></p>
-			    </div>
-			    <div><i class="fa fa-phone footer-contacts-icon"></i>
-			        <p class="footer-center-info email text-left"> </p>
-			    </div>
-			    <div><i class="fa fa-envelope footer-contacts-icon"></i>
-			        <p> <a href="#" target="_blank"></a></p>
-			    </div>
-			</div>
-			<div class="clearfix visible-sm-block"></div>
-			<div class="col-md-4 footer-about">
-			    <h4>About the company</h4>
-			    <p> 
-			    </p>
-			    <div class="social-links social-icons"><a href="https://www.facebook.com/YourStyle-565160520541773/"><i class="fa fa-facebook"></i></a><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a><a href="https://github.com/"><i class="fa fa-github"></i></a></div>
-			</div>			
-		</div>
-		</div>
-	</footer>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+
+<title>Footer</title>
+</head>
+<style>
+.fa {
+  padding: 15px;
+  font-size: 21px;
+  width: 55px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 26%;
+}
+.fa-facebook {
+  background: white;
+  color: #D4AF37;
+}
+.fa-twitter {
+  background: white;
+  color: #D4AF37;
+}
+.fa-google {
+  background: white;
+  color: #D4AF37;
+}
+.fa-linkedin {
+  background: white;
+  color: #D4AF37;
+}
+.fa-youtube {
+  background: white;
+  color: #D4AF37;
+}
+.footer{
+   background-color: #424558;
+   position: absolute;
+   margin-bottom: 0px;
+ margin-top:1%;
+    height: 350px;
+    text-align: center;
+    color: #CCC;
+}
+.footer p {
+    padding: 10.5px;
+    margin: 0px;
+    line-height: 100%;
+}
+#s1{
+padding: 10.5px;
+}
+</style>
+<body>
+<div class="footer">
+ <div class="row">
+      <div class="col-sm-4">
+    <h3><img class="img-responsive" src="C:\Users\swetha\Pictures\Saved Pictures\logo.jpg" style="margin:0; width:120px; height:120px;"></h3>
+		    <p align="left" >
+		        Find Your Item</p>
+ </div>
+ 	<div class="col-sm-4">
+ 	 <div class="form-group"></br>
+                <div class="input-group" id="s1">
+                  
+                  <input class="form-control"   placeholder="Enter your email .." type="text">
+                   <span class="input-group-btn">
+                    <button class="btn btn-success"  type="submit">Subscribe Us !</button>
+                  </span>
+                </div>
+              </div>
+                  <p align="left">Website</p>
+                  <p align="left">Blog</p>
+                      </div>
+      <div class="col-sm-4">
+                <h2> <p align="left"><button class="btn btn-success">Contact us</button></p></h2>
+                    <p align="left">Phone : +040-784621</p>
+                    <p align="left">Email : HotMobile@yahoo.in</p>
+                    <p align="left">FaxNo :  7846521854</p>
+                    </div>
+                    </div></br>
+                    <p>Follow Us :</p>
+<a href="#" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-twitter"></a>
+<a href="#" class="fa fa-google"></a>
+<a href="#" class="fa fa-linkedin"></a></li>
+       <h5>© 2017<a style="color:#039be5; text-decoration:none;" href="#"> Mobile world</a>, All rights reserved 2017-2019.</h5>
+    </div>
+        
 </body>
 </html>

@@ -38,6 +38,7 @@ public class HomeController {
 
 	@Autowired
 	CategoryDAO categoryDAO;
+	
 	@Autowired
 	SupplierDAO supplierDAO;
 	

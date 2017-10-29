@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Index Page</title>
+<title>Signup Page</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -33,29 +33,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Brand</a>
+                <a class="navbar-brand" href="#">Hot Mobile</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Profile</a></li>
+   
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Messages <b class="caret"></b></a>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="">Inbox</a></li>
-                            <li><a href="#">Drafts</a></li>
-                            <li><a href="#">Sent Items</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Trash</a></li>
+                            <li><a href="">Organization</a></li>
+                            <li><a href="#">Alerts</a></li>
                         </ul>
                     </li>
+                     <li><a href="#">Services</a></li>
+                 
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
     </nav>
 </div>
-<h1 align="center">SIGNUP</h1>
+<!-- <h3 align="center">SIGNUP</h1> -->
 <c:url var="actionUrl" value="saveUser" />
 
 <form:form  commandName="user" method="post" action="${actionUrl }" class="form-horizontal" >
@@ -98,7 +97,7 @@
 		</div>
 	</div>
 
-	<div class="form-group">
+	<!-- <div class="form-group">
 	<label for="code" class="col-xs-4 control-label"></label>
 		
 		<div class="col-xs-4">
@@ -106,7 +105,32 @@
 		<input type="submit" value="Add User" id="btn-add" class="btn btn-primary" >
 	
 	</div>
-	</div>
+	</div> -->
+	
+	<div class="form-group">
+	<label for="code" class="col-xs-4 control-label"></label>
+	 <div class="col-xs-4"> 
+    <button type="submit" class="btn btn-success" value="Submit">Signup</button>
+    <button type="reset" class="btn btn-success" value="Reset">Cancel</button>
+    <br>
+   <span>Forgot     <a href="#">password?</a></span>
+   </div>
+   </form>
+  <br>
+ <div class="col-sm-12">
+ <p align="center">
+ <a href="#"><img src="C:\Users\swetha\Pictures\Saved Pictures\signup.png" width="250" class="img-responsive"> </a>   
+ </p>  
+</div>
+  </div>
+
+
+   <!--  <div class="col-sm-7"><br> -->
+    </div>
+ </div>
+</div>
+	
 </form:form>
+ <jsp:include page="footer.jsp" />
 </body>
 </html>

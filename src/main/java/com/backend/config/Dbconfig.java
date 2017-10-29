@@ -14,18 +14,25 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.backend.DAO.CardDAO;
+import com.backend.DAO.CardDAOImpl;
 import com.backend.DAO.CartDAO;
 import com.backend.DAO.CartDAOImpl;
 import com.backend.DAO.CategoryDAO;
 import com.backend.DAO.CategoryDAOImpl;
+import com.backend.DAO.OrderDAO;
+import com.backend.DAO.OrderDAOImpl;
 import com.backend.DAO.ProductDAO;
 import com.backend.DAO.ProductDAOImpl;
 import com.backend.DAO.SupplierDAO;
 import com.backend.DAO.SupplierDAOImpl;
 import com.backend.DAO.UserDAO;
 import com.backend.DAO.UserDAOImpl;
+import com.backend.model.Card;
 import com.backend.model.Cart;
 import com.backend.model.Category;
+import com.backend.model.Order;
 import com.backend.model.Product;
 import com.backend.model.Supplier;
 import com.backend.model.User;
@@ -70,6 +77,8 @@ public class Dbconfig
 			sessionBuilder.addAnnotatedClass(Supplier.class);
 			sessionBuilder.addAnnotatedClass(Cart.class);
 			sessionBuilder.addAnnotatedClass(User.class);
+			sessionBuilder.addAnnotatedClass(Order.class);
+			sessionBuilder.addAnnotatedClass(Card.class);
 			sessionBuilder.scanPackages("com.backend.*");
 			System.out.println("Session");
 			
@@ -118,5 +127,18 @@ public class Dbconfig
 	public UserDAO getUserDAO(SessionFactory sessionFactory)
 	{
 		return new UserDAOImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name = "cardDAO")
+	public CardDAO getCardDAO(SessionFactory sessionFactory) 
+	{
+	    return new CardDAOImpl(sessionFactory);
+	}
+
+	@Autowired
+	@Bean(name = "orderDAO")
+	public OrderDAO getOrderDAO(SessionFactory sessionFactory) 
+	{
+	    return new OrderDAOImpl(sessionFactory);
 	}
 }
