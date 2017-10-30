@@ -48,6 +48,8 @@
                 </ul>
                 </div></div>
                 </nav>
+                
+                
 <div class="container">
    <div class="col-xs-offset-2 col-xs-12">
              <div class="form-group">
@@ -62,7 +64,7 @@
                             <h3 class="panel-title"><span class="panel-title-text"><b>Payment Details </b></span> <img class="img-responsive panel-title-image" src="C:\Users\swetha\Pictures\Saved Pictures\card.jpg" height="10%"></h3></div>
                         <div class="panel-body">
                         
-                            <form:form action="Invoice" id="payment-form" modelAttribute="card">
+                            <form:form action="invoice" id="payment-form" modelAttribute="card">
                             
                             
                             <h3 class="head text-center"><i>Billing address</i></h3>
@@ -210,5 +212,5 @@
 </div>
   
 </body>
-
+<jsp:include page="footer.jsp"/>
 </html>

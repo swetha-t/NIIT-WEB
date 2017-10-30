@@ -45,62 +45,15 @@
                     </li>
                     <li><a href="#">Services</a></li>
                 </ul>
-                
-                        <c:forEach items="${categoryList}" var="category">
-                            <li role="presentation"><a href="product${category.id}">${category.categoryName}</a></li>
-                            </c:forEach>
-                        </ul>
-                    </li>
-
- 			 <sec:authorize access="!isAuthenticated()">                
- 	    			<li role="presentation"><a href="login">Login <i class="glyphicon glyphicon-log-in"></i></a></li>
-                    <li role="presentation"><a href="signup">SignUp <i class="glyphicon glyphicon-user"></i></a></li>
-             </sec:authorize>
-            
-             <sec:authorize access="isAuthenticated()">
-            		  <!-- <li class="active" role="presentation"><a href="cart">Shop<i class="glyphicon glyphicon-shopping-cart"></i></a></li>
-                       --><li> <a href="<c:url value="j_spring_security_logout" />">Logout</a></li>
-             </sec:authorize>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-<br>
+                </div>
+                </div>
+                </nav>
+                <br>
 <br>
 <br>
 <br>
 <div id= "printableArea">
- <form:form modelAttribute="user" commandName="user">
-<div class="container">
-        <div class="well">
-       
-            <div class="row">
-            
-                <div class="col-md-4">
-                    <label>Name:${user.name} </label>
-                </div> 
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <label>email:${user.email} </label>
-                </div>
-            </div>
-            <div class="row">
-    	            <div class="col-md-4">
-                    <label>contact no:${user.contact_number} </label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <label>Shipping Address:${user.address} </label>
-                </div>
-            </div>
-            <hr>
-        </div>
-    </div>
-    </form:form>
+ 
      <div class="container">
         <div class="well">     
 
@@ -113,7 +66,7 @@
 	<th>Product name</th>
 	<th>product price</th>
 	<th>Quantity</th>
-	<th>SubTotal</th>
+	
 
 	
 	
@@ -123,10 +76,10 @@
 <c:forEach items="${cd}" var="cd">
 		<tr>
 		<td><img src="/dtbackend/myImage/imageDisplay?id=${cd.productid}" alt="" width="200" height="200" /></td>
-			<td>${cd.productname}</td>
-			<td>${cd.productprice}</td>
+			<td>${cd.name}</td>
+			<td>${cd.price}</td>
 			<td>${cd.quantity}</td>
-			<td>${cd.subTotal}</td>	
+			
 			
 		</tr>
 </c:forEach>	
@@ -150,6 +103,10 @@
        <a href="index" class="btn btn-danger" role="button">Continue Shopping</a>
      	</div>
  </div>
+ 
+ 
+   
+                
  	<jsp:include page="footer.jsp" /> 
 </body>
 </html>

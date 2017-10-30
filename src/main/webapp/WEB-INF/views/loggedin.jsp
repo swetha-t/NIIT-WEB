@@ -77,7 +77,7 @@
 
 
 			<div class="row">
-										<img src="/ECommFrontEnd/myImage/imageDisplay?id=${product.id}"
+										<img src="/dtbackend/myImage/imageDisplay?id=${product.id}"
 											class="img-responsive" style="width: 180px; height: 120px">
 										<div>				</div>
 			</div>

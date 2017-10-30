@@ -40,7 +40,7 @@ public class CheckoutController {
 	}
 	
 	
-	@RequestMapping(value="/Invoice",method=RequestMethod.POST)
+	@RequestMapping(value="/invoice",method=RequestMethod.POST)
 	public String InvoicePage(@ModelAttribute ("card") Card card, HttpSession session, Model model)
 	{
 		int charges=99;
@@ -56,7 +56,7 @@ public class CheckoutController {
      	model.addAttribute("total",checkOutDAO.getTotal(userid));
 		model.addAttribute("cod", charges);
 		cartDAO.removeCartById(userid);
-		return "Invoice";
+		return "/Invoice";
 	
 	
 	}
@@ -66,17 +66,17 @@ public class CheckoutController {
 	public String CodInvoicePage(@ModelAttribute ("card") Card card,HttpSession session, Model model)
 	{
 		int charges=99;	
-		int userId = (Integer) session.getAttribute("id");
-		cartDAO.getCartById(userId);
+		int userid = (Integer) session.getAttribute("id");
+		cartDAO.getCartById(userid);
 		orderDAO.OrderDetails();
 	
-		model.addAttribute("user", userDAO.getUserById(userId));
-    	model.addAttribute("cd", cartDAO.getCartById(userId));
-    	model.addAttribute("total",checkOutDAO.getTotal(userId));
+		model.addAttribute("user", userDAO.getUserById(userid));
+    	model.addAttribute("cd", cartDAO.getCartById(userid));
+    	model.addAttribute("total",checkOutDAO.getTotal(userid));
    
 		model.addAttribute("cod", charges);
-		cartDAO.removeCartById(userId);
-		return "Invoice";
+		cartDAO.removeCartById(userid);
+		return "redirect:/Invoice";
 	
 	
 	}
