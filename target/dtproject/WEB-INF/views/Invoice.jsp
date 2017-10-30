@@ -122,7 +122,7 @@
 <tbody>	
 <c:forEach items="${cd}" var="cd">
 		<tr>
-		<td><img src="/Bakersfrontend/myImage/imageDisplay?id=${cd.productid}" alt="" width="200" height="200" /></td>
+		<td><img src="/dtbackend/myImage/imageDisplay?id=${cd.productid}" alt="" width="200" height="200" /></td>
 			<td>${cd.productname}</td>
 			<td>${cd.productprice}</td>
 			<td>${cd.quantity}</td>

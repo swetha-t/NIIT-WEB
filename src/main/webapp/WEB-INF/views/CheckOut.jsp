@@ -17,10 +17,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
 </head>
-<body>
+
+<body style="background-color:#f0f4c3" data-gr-c-s-loaded="true">
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
+     
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -45,10 +46,12 @@
                     </li>
                       <li><a href="#">Services</a></li>
                 </ul>
+                </div></div>
+                </nav>
 <div class="container">
    <div class="col-xs-offset-2 col-xs-12">
              <div class="form-group">
-                 <label style="color:white;" class="control-label" for="total"><h3><strong>Grand Total : ${total}</strong></h3></label>
+                 <label style="color:#ff9800;" class="control-label" for="total"><h3><strong>Grand Total : ${total}</strong></h3></label>
                 </div>
                 </div>                    
         
@@ -56,18 +59,39 @@
                 <div class="col-md-4 col-md-offset-4 col-xs-12">
                     <div class="panel panel-default credit-card-box">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><span class="panel-title-text">Payment Details </span><img class="img-responsive panel-title-image" src="<c:url value="/resources/assets/img/accepted_cards.png"/>"></h3></div>
+                            <h3 class="panel-title"><span class="panel-title-text"><b>Payment Details </b></span> <img class="img-responsive panel-title-image" src="C:\Users\swetha\Pictures\Saved Pictures\card.jpg" height="10%"></h3></div>
                         <div class="panel-body">
-                            <form:form action="invoice" id="payment-form" modelAttribute="card">
-                            <div class="row">
+                        
+                            <form:form action="Invoice" id="payment-form" modelAttribute="card">
+                            
+                            
+                            <h3 class="head text-center"><i>Billing address</i></h3>
+                          <div class="row">
+                          <div class="col-sm-12">
+                          <div class="form-group">            
+            <b> Name on Card</b>:<input type="text" class="form-control" name="first"  required > 
+             
+            
+        
+        </div>
+                          </div>
+                           <div class="col-sm-12">
+                          <div class="form-group">            
+         <b> Valid Card Number</b>:<input type="text" class="form-control" name="last"   required> 
+           
+        </div>
+                          </div>
+                          </div>
+                       
+                            <%-- <div class="row">
                                     <div class="col-xs-12">
-                                        <div class="form-group">
+                                      <div class="form-group">
                                         	<form:label class="control-label" path="card_name">Name on Card</form:label>
                                             <div class="input-group">
                                                <form:input class="form-control" type="text" required="required" placeholder="Name on Your Card" path="card_name"/>
                                                 <div class="input-group-addon"><span><i class="fa fa-user"></i></span></div>
                                                 </div>
-                                             </div>
+                                             </div> 
                                         </div>
                                     </div>
 
@@ -81,7 +105,7 @@
                                                  </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --%> 
                               <%--   <div class="alert alert-danger alert-dismissable fade in">
                                  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                                  <strong><form:errors path="card_number"></form:errors></strong>
@@ -89,12 +113,12 @@
                                 <div class="row">
                                     <div class="col-xs-9">
                                         <div class="form-group">
-                                            <label class="control-label" for="cardExpiry"><span class="hidden-xs">expiration </span><span class="visible-xs-inline">EXP </span> date</label>
+                                            <label class="control-label" for="cardExpiry"><span class="hidden-xs">Expiration </span><span class="visible-xs-inline">EXP </span> Date</label>
                                             <!-- <input class="form-control" type="tel" required="" placeholder="MM / YY" id="cardExpiry">
                                         --> <div class="row">
-                                        <div class="col-xs-5">
+                                        <div class="col-xs-6">
                                          
-              <select class="form-control col-sm-2" name="expiry-month" placeholder="Month" id="expiry-month">
+              <select class="form-control col-sm-5" name="Expiry-month" placeholder="Month" id="expiry-month">
                 <option>Month</option>
                 <option value="01">Jan (01)</option>
                 <option value="02">Feb (02)</option>
@@ -110,7 +134,7 @@
                 <option value="12">Dec (12)</option>
               </select>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-5">
               <select class="form-control" name="expiry-year" placeholder="year">
                 <option>year</option>
                 <option value="18">2018</option>
@@ -129,7 +153,7 @@
 </div>
                                         </div>
                                     </div>
-                                    <div class="col-xs-3 pull-right">
+                                    <div class="col-xs-6 pull-middle">
                                           <div class="form-group">
                                             <label class="control-label" for="cardCVC">CVV code</label>
                                             <input class="form-control" type="tel" required="" placeholder="CVV" id="cardCVC">
@@ -152,9 +176,10 @@
 
    <form:form action="CodInvoice" id="payment-form" modelAttribute="card">                         
   	<div class="row">
-    <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
+  	
+      <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
         <button class="btn btn-warning btn-block" data-toggle="modal" data-target="#myModal" type="button">Cash on Delivery</button>
-    </div></div>
+    </div></div></div>
     <div class="modal fade" id="myModal" role="dialog" tabindex="-1">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

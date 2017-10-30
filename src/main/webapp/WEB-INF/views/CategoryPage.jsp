@@ -15,8 +15,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+ <div class="container"> 
+       <div style='position:absolute;zindex:0;left:0;top:0;width:100%;height:100%'>
+           <img src='C:\Users\swetha\Pictures\Saved Pictures\category1.jpg' style='width:100%;height:45%' alt='[]' />
+       </div>
+   </div>
 <body>
-	
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -28,22 +32,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a class="navbar-brand" href="#">Hot Mobile</a>
+                <a class="navbar-brand" href="#">Brand</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="loggedin">Home</a></li>
-                    
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Profile</a></li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Messages <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="">Organization</a></li>
-                            <li><a href="#">Alerts</a></li>
-                            
+                            <li><a href="">Inbox</a></li>
+                            <li><a href="#">Drafts</a></li>
+                            <li><a href="#">Sent Items</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Trash</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Services<s/a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -66,6 +71,8 @@
         </div>
     </nav>
 </div>
+
+
 	<div class="container">
 	      <form:form commandName="category" method="post" action="addCategory">
 				<p><font color="red">${errorMessage}</font></p>				
@@ -75,7 +82,7 @@
 			     	<c:when test="${category.category_id==0}">  Add New Item </c:when>
 			     	<c:when test="${!empty category.category_id}">Update Category for Id: <c:out value="${category.category_id}"/></c:when>
 			     </c:choose>
-			     </strong>
+		 	     </strong>
 			     </h5>
 			    		     
 				<div class="form-group row">
@@ -107,7 +114,7 @@
 						
 							
 						<c:if test="${category.category_id==0}">
-						<input type="submit" value="Add Category" id="btn-add" class="btn btn-primary" >
+						<input type="submit" value="Add Category" id="btn-add" class="btn btn-success" >
 						
 						</c:if> <c:if test="${category.category_id!=0}">
 						
@@ -119,10 +126,11 @@
 					</div>
 						
 		</form:form><br/>
-		,
+		<br>
+		
 		<table class="table table-striped table-bordered" style="width:80%">
 			<thead>
-			<tr>
+			<tr bgcolor="#ff6f00">
 				<th>S. No.</th>
 				<th>Category Id</th>
 				<th>Category Name</th>
@@ -140,7 +148,7 @@
 			   			<td><nobr>
 <a class="btn btn-primary" href="editcategory/${category.category_id}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
 
-<a class="btn btn-primary"  href="removecategory/${category.category_id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+<a class="btn btn-danger"  href="removecategory/${category.category_id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
 								</a>
 
 							</nobr></td>

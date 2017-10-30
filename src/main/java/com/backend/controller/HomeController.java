@@ -95,7 +95,7 @@ public class HomeController {
 			     {
 			    	 session.setAttribute("UserLoggedIn", "true");
 			    	//session.setAttribute("cartsize",cartDAO.cartsize((Integer)session.getAttribute("userid")));
-			    	 return "loggedin";
+			    	 return "/loggedin";
 			     }
 			     else 
 			     {
@@ -125,7 +125,7 @@ public class HomeController {
 			public String UserRegister(@ModelAttribute("user") User user,RedirectAttributes attributes) {
 				user.setEnabled(true);
 				user.setRole("ROLE_USER");
-				userDAO.saveOrUpdate(user);
+				userDAO.saveUser(user);
 				attributes.addFlashAttribute("SuccessMessage","Registration Successfull");
 				return "redirect:/";
 			}
@@ -147,8 +147,6 @@ public class HomeController {
 			    }
 			
 			
-			
-
 			
 		@RequestMapping(value ="nav/{id}" )
 		public String ShowProductByCategory(@PathVariable("id") int id,RedirectAttributes attributes,Model m) {

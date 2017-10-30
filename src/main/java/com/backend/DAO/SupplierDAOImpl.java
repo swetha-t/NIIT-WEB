@@ -64,7 +64,9 @@ public class SupplierDAOImpl implements SupplierDAO {
 		}
 
 	@Transactional
-	public Supplier removeSupplierById(int supplier_id) {
+	public Supplier removeSupplierById(int supplier_id) 
+	{
+		
 		Supplier SupplierToDelete =new Supplier();
 	  SupplierToDelete.setSupplier_id(supplier_id);
 	  sessionFactory.getCurrentSession().delete(SupplierToDelete);

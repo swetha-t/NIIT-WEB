@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Category Page</title>
+<title>Product Page</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="resources/css/Pretty-Footer.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,6 +13,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
+<%-- <jsp:include page="index_header.jsp"></jsp:include> --%>
+   <div class="container"> 
+       <div style='position:absolute;zindex:0;left:0;top:0;width:100%;height:100%'>
+           <img src='C:\Users\swetha\Pictures\Saved Pictures\back1.jpg' style='width:100%;height:58%' alt='[]' />
+       </div>
+   </div> 
 <body>
 	
 
@@ -64,12 +71,12 @@
             </div><!-- /.navbar-collapse -->
         </div>
     </nav>
-</div>
+
 	
 <div class="container">
 	      <form:form commandName="product" method="post" action="addProduct" enctype="multipart/form-data">
 				<p><font color="red">${errorMessage}</font></p>		
-
+<br>
 <h3 align="center">
 			<c:if test="$(category.id==0}">
 		       Add New Item
@@ -173,22 +180,22 @@
 		
 			
 		<c:if test="${product.id==0}">
-		<input type="submit" value="Add Product" id="btn-add" class="btn btn-primary" >
+		<input type="submit" value="Add Product" id="btn-add" class="btn btn-success" >
 		
 		</c:if> <c:if test="${product.id!=0}">
 		
-	   <input type="submit" value="Update Product" id="btn-update" class="btn btn-primary" >
+	   <input type="submit" value="Update Product" id="btn-update" class="btn btn-success" >
 	  </c:if>
 		
 		
 		</div>
 	</div>
-</form:form>
+<%-- </form:form> --%>
 
-
+<br><br>
 		<table class="table table-striped table-bordered"  style="width: 80%">
 			<thead>
-				<tr>
+				<tr bgcolor="#aed581 ">
 					<th width="2%">S.N</th>
 					<th width="2%">product ID</th>
 					<th width="2%">product Name</th>
@@ -219,7 +226,7 @@
 						<td><nobr>
 <a class="btn btn-primary" href="editproduct/${product.id}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
 
-<a class="btn btn-primary"  href="removeproduct/${product.id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+<a class="btn btn-danger"  href="removeproduct/${product.id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
 								</a>
 
 							</nobr></td>
@@ -227,7 +234,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
-
+		</form:form>
+</div>
 	</div>
 		<jsp:include page="footer.jsp" /> 
 </body>

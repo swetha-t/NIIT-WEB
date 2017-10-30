@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Category Page</title>
+<title>Supplier Page</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="resources/css/Pretty-Footer.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,6 +15,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+ <div class="container"> 
+       <div style='position:absolute;zindex:0;left:0;top:0;width:100%;height:100%'>
+           <img src='C:\Users\swetha\Pictures\Saved Pictures\supplier.jpg' style='width:100%;height:35%' alt='[]' />
+       </div>
+   </div>
 <body>
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
@@ -102,11 +107,11 @@
 						
 							
 						<c:if test="${supplier.supplier_id==0}">
-						<input type="submit" value="Add Supplier" id="btn-add" class="btn btn-primary" >
+						<input type="submit" value="Add Supplier" id="btn-add" class="btn btn-success" >
 						
 						</c:if> <c:if test="${supplier.supplier_id!=0}">
 						
-					   <input type="submit" value="Update Supplier" id="btn-update" class="btn btn-primary" >
+					   <input type="submit" value="Update Supplier" id="btn-update" class="btn btn-success" >
 					  </c:if>
 						
 						
@@ -114,10 +119,10 @@
 					</div>
 						
 		</form:form><br/>
-		,
+		
 		<table class="table table-striped table-bordered" style="width:80%">
 			<thead>
-			<tr>
+			<tr bgcolor="#ffc400 ">
 				<th>S. No.</th>
 				<th>SupplierI d</th>
 				<th>Supplier Name</th>
@@ -133,7 +138,7 @@
 			   			<td><nobr>
 <a class="btn btn-primary" href="editsupplier/${supplier.supplier_id}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
 
-<a class="btn btn-primary"  href="removesupplier/${supplier.supplier_id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+<a class="btn btn-danger"  href="removesupplier/${supplier.supplier_id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
 								</a>
 
 							</nobr></td>

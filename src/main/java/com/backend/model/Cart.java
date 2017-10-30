@@ -12,19 +12,26 @@ public class Cart {
 	@Column(name="cart_id")
 	@Id
 	@GeneratedValue
-private int id;
+	private int id;
+public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+private int userid;
 private int productid;
-private String productName;
-private double ProductPrice;
-private int productQuantity;
+private String productname;
+private double Productprice;
+private int quantity;
 private double subTotal;
 private String status;
-private int userId;
-public int getId() {
-	return id;
+private String orderId;
+public int getUserid() {
+	return userid;
 }
-public void setId(int id) {
-	this.id = id;
+public void setUserid(int userid) {
+	this.userid = userid;
 }
 public int getProductid() {
 	return productid;
@@ -32,23 +39,23 @@ public int getProductid() {
 public void setProductid(int productid) {
 	this.productid = productid;
 }
-public String getProductName() {
-	return productName;
+public String getProductname() {
+	return productname;
 }
-public void setProductName(String productName) {
-	this.productName = productName;
+public void setProductname(String productname) {
+	this.productname = productname;
 }
-public double getProductPrice() {
-	return ProductPrice;
+public double getProductprice() {
+	return Productprice;
 }
-public void setProductPrice(double productPrice) {
-	ProductPrice = productPrice;
+public void setProductprice(double productprice) {
+	Productprice = productprice;
 }
-public int getProductQuantity() {
-	return productQuantity;
+public int getQuantity() {
+	return quantity;
 }
-public void setProductQuantity(int productQuantity) {
-	this.productQuantity = productQuantity;
+public void setQuantity(int quantity) {
+	this.quantity = quantity;
 }
 public double getSubTotal() {
 	return subTotal;
@@ -62,10 +69,10 @@ public String getStatus() {
 public void setStatus(String status) {
 	this.status = status;
 }
-public int getUserId() {
-	return userId;
+public String getOrderId() {
+	return orderId;
 }
-public void setUserId(int userId) {
-	this.userId = userId;
+public void setOrderId(String orderId) {
+	this.orderId = orderId;
 }
 }

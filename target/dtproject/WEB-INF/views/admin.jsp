@@ -82,17 +82,17 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img class="img-rounded" class="img-responsive center-block"
-      src="C:\Users\swetha\Pictures\Saved Pictures\8.jpg" style="width:100%" "height="50%">
+      <img class="img-rounded" class="img-responsive center"
+      src="C:\Users\swetha\Pictures\Saved Pictures\10.jpg"> <!-- style="width:50%" "height="10%" -->
     </div>
     <div class="item">
     <img class="img-rounded" class="img-responsive center-block"
-      src="C:\Users\swetha\Pictures\Saved Pictures\9.jpg" style="width:100%" "height="50%">
+      src="C:\Users\swetha\Pictures\Saved Pictures\11.png" style="width:50%" "height="10%">
     </div>
 
     <div class="item">
     <img class="img-rounded" class="img-responsive center-block"
-      src="C:\Users\swetha\Pictures\Saved Pictures\devices.jpg" style="width:100%" "height="20%">
+      src="C:\Users\swetha\Pictures\Saved Pictures\12.jpg" style="width:50%" "height="10%">
     </div>
  
   </div>

@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.backend.DAO.CardDAO;
 import com.backend.DAO.CartDAO;
+import com.backend.DAO.CheckOutDAO;
 import com.backend.DAO.OrderDAO;
 import com.backend.DAO.UserDAO;
 import com.backend.model.Card;
-import com.backend.model.Checkout;
+
 
 public class CheckoutController {
 	@Autowired
@@ -26,34 +27,35 @@ public class CheckoutController {
 	OrderDAO orderDAO;
 	
 	@Autowired
-	Checkout checkOutDAO;
+	CheckOutDAO checkOutDAO;
+	
 	@Autowired
 	CardDAO cardDAO;
 	
-	@RequestMapping("Checkout")
+	@RequestMapping("CheckOut")
 	public String CheckoutPage(@ModelAttribute("card")Card card,Model model)
 	{
 		//model.addAttribute("total", checkOutDAO.getTotal(userid));
 		return "CheckOut";	
 	}
-
-		
-	@RequestMapping(value="/invoice",method=RequestMethod.POST)
+	
+	
+	@RequestMapping(value="/Invoice",method=RequestMethod.POST)
 	public String InvoicePage(@ModelAttribute ("card") Card card, HttpSession session, Model model)
 	{
 		int charges=99;
-		int userId = (Integer) session.getAttribute("userid");
-		cartDAO.getCartById(userId);
-		card.setCard_userid(userId);
+		int userid = (Integer) session.getAttribute("userid");
+		cartDAO.getCartById(userid);
+		card.setCard_userid(userid);
 		cardDAO.saveCard(card);
 		orderDAO.OrderDetails();
 		
 	   	
-		model.addAttribute("user", userDAO.getUserById(userId));
-    	model.addAttribute("cd", cartDAO.getCartById(userId));
-     	model.addAttribute("total",checkOutDAO.getTotal(userId));
+		model.addAttribute("user", userDAO.getUserById(userid));
+    	model.addAttribute("cd", cartDAO.getCartById(userid));
+     	model.addAttribute("total",checkOutDAO.getTotal(userid));
 		model.addAttribute("cod", charges);
-		cartDAO.removeCartById(userId);
+		cartDAO.removeCartById(userid);
 		return "Invoice";
 	
 	
@@ -64,7 +66,7 @@ public class CheckoutController {
 	public String CodInvoicePage(@ModelAttribute ("card") Card card,HttpSession session, Model model)
 	{
 		int charges=99;	
-		int userId = (Integer) session.getAttribute("userid");
+		int userId = (Integer) session.getAttribute("id");
 		cartDAO.getCartById(userId);
 		orderDAO.OrderDetails();
 	

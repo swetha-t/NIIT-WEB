@@ -6,10 +6,11 @@ import com.backend.model.User;
 
 public interface UserDAO {
 	
-	  public boolean saveOrUpdate(User user);
+	  public boolean saveUser(User user);
 	  public List<User> list();
-	  public User getUserById(int user_id);
+	  public List<User> getUserById(int userid);
 	  public void removeUserById(int user_id);
-	  
+	  public User getUser(int userid);
+	  public List getAllUser();
 	  public User get(String email);
 	}

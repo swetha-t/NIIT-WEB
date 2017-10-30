@@ -15,12 +15,11 @@ import com.backend.model.Cart;
 
 @SuppressWarnings("deprecation")
 public class CartDAOImpl implements CartDAO {
-
 	@Autowired
 	SessionFactory sessionFactory;
 
-	public CartDAOImpl(SessionFactory sessionFactory) {
-	
+	public CartDAOImpl(SessionFactory sessionFactory) 
+	{
 		this.sessionFactory = sessionFactory;
 	}
 
@@ -32,11 +31,11 @@ public class CartDAOImpl implements CartDAO {
 	}
 
 	@Transactional
-	public Cart getitem(int prodId, int userId) {
-		String hql = "from"+" Cart"+" where userid="+userId+" and productid="+prodId;
-		@SuppressWarnings({ "rawtypes" })
+	public Cart getitem(int prodId, int userid) {
+		String hql = "from"+" Cart"+" where userid="+userid+" and productid="+prodId;
+		@SuppressWarnings("rawtypes")
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		@SuppressWarnings({ "unchecked" })
+		@SuppressWarnings("unchecked")
 		List<Cart> list = (List<Cart>) query.list();
 		if (list!= null && !list.isEmpty()) {
 			return list.get(0);
@@ -50,31 +49,30 @@ public class CartDAOImpl implements CartDAO {
 		List<Cart> cartList= sessionFactory.getCurrentSession().createQuery("from Cart").list();
 		return cartList;
 	}
-
 	@Transactional
-	public boolean removeCartById(int cart_id) {
-		 Object persistentInstance =sessionFactory.getCurrentSession().load(Cart.class, cart_id);
-		    if (persistentInstance != null) {
-		    	sessionFactory.getCurrentSession().delete(persistentInstance);
-		        return true;
-		    }
-		    return false;
+	public void removeCartById(int userid) {
+		// TODO Auto-generated method stub
+		Query query = sessionFactory.getCurrentSession().createQuery("delete Cart where userid="+userid);
+		query.executeUpdate();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Transactional
-	public long cartsize(int userId) {
+	public long cartsize(int userid) {
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(Cart.class);
-		c.add(Restrictions.eq("userId", userId));
+		c.add(Restrictions.eq("userid", userid));
 		c.add(Restrictions.eq("status","C"));
-		c.setProjection(Projections.count("userId"));
+		c.setProjection(Projections.count("userid"));
 		long count= (Long) c.uniqueResult();
 		return count;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Transactional
-	public double CartPrice(int userId) {
+	public double CartPrice(int userid) {
+		
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(Cart.class);
-		c.add(Restrictions.eq("userId", userId));
+		c.add(Restrictions.eq("userid", userid));
 		c.add(Restrictions.eq("status","C"));
 		c.setProjection(Projections.sum("subTotal"));
 		double l=  (Double) c.uniqueResult();
@@ -83,8 +81,7 @@ public class CartDAOImpl implements CartDAO {
 
 	@Transactional
 	public Cart editCartById(int cart_id) {
-Cart cart=	sessionFactory.getCurrentSession().get(Cart.class,cart_id);
-		
+		Cart cart=	sessionFactory.getCurrentSession().get(Cart.class,cart_id);	
 		return cart;
 	}
 
@@ -104,6 +101,19 @@ Cart cart=	sessionFactory.getCurrentSession().get(Cart.class,cart_id);
 		
 		return null;
 	}
+	@Transactional
+	public List<Cart> getCart(int userid) {
+		List<Cart> clist= sessionFactory.getCurrentSession().createQuery("from Cart where userId="+userid).list();
+		return clist;
+	}
+	@Transactional
+	public void getCartByStatus(int userid) {
+		String hql="update Cart set status='P' where userid="+userid;	
+		@SuppressWarnings("rawtypes")
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.executeUpdate();
+	}
+
 	
 
 }

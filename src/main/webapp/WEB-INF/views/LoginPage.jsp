@@ -67,7 +67,12 @@ text-align: right;
 }
 </style>
 </head>
-<body background="${pageContext.request.contextPath}/resources/images/back3.jpg">
+<div class="container"> 
+       <div style='position:absolute;zindex:0;left:0;top:0;width:100%;height:100%'>
+           <img src='C:\Users\swetha\Pictures\Saved Pictures\back.jpg' style='width:100%;height:80%' alt='[]' />
+       </div>
+   </div>
+<body >
 <jsp:include page="header.jsp"/>
 <div class='container' id="nav">
   <div class='row'>

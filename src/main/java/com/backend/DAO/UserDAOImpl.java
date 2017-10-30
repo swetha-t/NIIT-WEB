@@ -24,40 +24,46 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Transactional
-	public boolean saveOrUpdate(User user) {
-		
+	public boolean saveUser(User user) {
+
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
+		
 		return true;
 	}
 
+
 	public List<User> list() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Transactional
-	public User getUserById(int user_id) {
-		@SuppressWarnings("deprecation")
-		Criteria c = sessionFactory.getCurrentSession().createCriteria(User.class);
-		c.add(Restrictions.eq("userid", user_id));
+	public List<User> getUserById(int userid) {
+		return (List<User>) sessionFactory.getCurrentSession().createQuery("from User where id="+userid).list();
+	}
 
-		@SuppressWarnings("unchecked")
-		List<User> listUser = (List<User>) c.list();
-
-		if (listUser != null && !listUser.isEmpty()) {
-			return listUser.get(0);
-		} else {
-			return null;
-		}
-}
 
 	public void removeUserById(int user_id) {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Transactional
+	public User getUser(int userid) {
+		// TODO Auto-generated method stub
+		return (User)sessionFactory.getCurrentSession().get(User.class, userid);
+	}
+
+	@Transactional
+	public List getAllUser() {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createQuery("from User").list();
+	}
+
+	@SuppressWarnings("deprecation")
+	@Transactional
 	public User get(String email) {
-	
-		@SuppressWarnings("deprecation")
 		Criteria c = sessionFactory.getCurrentSession().createCriteria(User.class);
 		c.add(Restrictions.eq("email", email));
 
@@ -68,7 +74,8 @@ public class UserDAOImpl implements UserDAO {
 			return listUser.get(0);
 		} else {
 			return null;
-	
+		}
+
 	}
 }
-}
+	

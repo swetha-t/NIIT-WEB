@@ -1,5 +1,8 @@
 package com.backend.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,27 +53,42 @@ public class CartController {
     	if (cartDAO.getitem(id, userId) != null) {
 			Cart item = cartDAO.getitem(id, userId);
 			
-			item.setProductQuantity(item.getProductQuantity() + q);
+			item.setQuantity(item.getQuantity() + q);
 			
 			Product p = productDAO.getProductById(id);
 			System.out.println(item);
-			item.setProductPrice(p.getPrice());
-			item.setSubTotal(item.getProductQuantity() *p.getPrice());
+			item.setProductprice(p.getPrice());
+			item.setSubTotal(item.getQuantity() *p.getPrice());
+			
+			String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+			 
+			/* Date date = new java.util.Date();
+			   long diff = date.getTime();
+			   item.setOrderId(diff);*/
+			item.setOrderId(timeStamp);
+			
 			cartDAO.saveProductToCart(item);
 			attributes.addFlashAttribute("ExistingMessage",  p.getName() +"is already exist");
 	
 			return "CartPage";
-		/*	return "redirect:/";*/
+		
 		} else {
 			Cart item = new Cart();
 			Product p = productDAO.getProductById(id);
 			item.setProductid(p.getId());
-			item.setProductName(p.getName());
-			item.setUserId(userId);
-			item.setProductQuantity(q);
+			item.setProductname(p.getName());
+			item.setUserid(userId);
+			item.setQuantity(q);
 			item.setStatus("C");
 			item.setSubTotal(q * p.getPrice());
-			item.setProductPrice(p.getPrice());
+			item.setProductprice(p.getPrice());
+			
+			String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+	     	   /* Date date = new java.util.Date();
+			   long diff = date.getTime();
+			   item.setOrderId(diff);*/
+          item.setOrderId(timeStamp);
+			
 			cartDAO.saveProductToCart(item);
 			attributes.addFlashAttribute("SuccessMessage", "Item"+p.getName()+" has been deleted Successfully");
 			return "redirect:/";
@@ -95,10 +113,12 @@ public class CartController {
     
 		//int userId = (Integer) session.getAttribute("userid");
 		model.addAttribute("CartList", cartDAO.listCart());
-		 if(cartDAO.cartsize(userId)!=0){
+		 if(cartDAO.cartsize(userId)!=0)
+		 {
 			
 			model.addAttribute("CartPrice", cartDAO.CartPrice(userId));
-		} else {
+		}
+		 else {
 			model.addAttribute("EmptyCart", "true");
 		}
 		model.addAttribute("IfViewCartClicked", "true");
@@ -117,13 +137,13 @@ public class CartController {
 		User user = userDAO.get(email);
 		
     	
-    	 userId = user.getId();
+    	// userId = user.getId();
 
 		
-		//int userId = (Integer) session.getAttribute("userid");
+		int userId = (Integer) session.getAttribute("userid");
 		Cart cart = cartDAO.editCartById(cartid);
 		Product p = productDAO.getProductById(cart.getProductid());
-		cart.setProductQuantity(q);
+		cart.setQuantity(q);
 		//cart.setProductPrice(q * p.getPrice());
 		cart.setSubTotal(q * p.getPrice());
 		cartDAO.saveProductToCart(cart);
@@ -157,8 +177,7 @@ return "loggedin";
 
 }
 
-
-@RequestMapping("Checkout")
+@RequestMapping("CheckOut")
 public String checkout()
 {
 return "CheckOut";	

@@ -160,9 +160,9 @@
 	</div>
 	 --%>
 	 
-	 
+	 <c:forEach items="${ProductList}" var="product">
 	 <div class="container">
-		<c:forEach items="${ProductList}" var="product">
+		
 			<h3 style="color: Brown">
 				<c:out value="${product.name }" />
 			</h3>
