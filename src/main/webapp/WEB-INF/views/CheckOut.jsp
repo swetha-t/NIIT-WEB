@@ -64,7 +64,7 @@
                                         <div class="form-group">
                                         	<form:label class="control-label" path="card_name">Name on Card</form:label>
                                             <div class="input-group">
-                                               <form:input class="form-control" type="text" required="" placeholder="Name on Your Card" path="card_name"/>
+                                               <form:input class="form-control" type="text" required="required" placeholder="Name on Your Card" path="card_name"/>
                                                 <div class="input-group-addon"><span><i class="fa fa-user"></i></span></div>
                                                 </div>
                                              </div>

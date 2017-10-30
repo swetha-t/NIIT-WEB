@@ -48,7 +48,7 @@
                             
                         </ul>
                     </li>
-                    <li><a href="#">Servicess</a></li>
+                    <li><a href="#">Services</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     

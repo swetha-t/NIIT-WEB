@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Hot Mobile</a>
+                <a class="navbar-brand" href="#">Hot Mobiles</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -125,12 +125,11 @@
   </div>
 
 
-   <!--  <div class="col-sm-7"><br> -->
+
     </div>
  </div>
 </div>
-	
 </form:form>
- <jsp:include page="footer.jsp" />
+  <jsp:include page="footer.jsp"/>
 </body>
 </html>

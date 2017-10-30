@@ -68,9 +68,9 @@
                     </li>
                 </ul>
                    
-                <ul class="nav navbar-nav">
+                <!-- <ul class="nav navbar-nav">
                     <li><a href="viewcart">Cart</a></li>
-               </ul>         
+               </ul>  -->        
             </div><!-- /.navbar-collapse -->
         </div>
     </nav>
