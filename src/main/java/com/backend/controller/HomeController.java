@@ -159,10 +159,12 @@ public class HomeController {
 		    return "redirect:/";
 		}
 
-		 /*@RequestMapping("/Profile")
-		    public String Profile()
-		    {
-			 return "redirect:/ProfilePage";
-		    }*/
+		@RequestMapping(value = "organization")
+		public String ShowOrganization(Model mv) {
+			mv.addAttribute("user", new User());
+			mv.addAttribute("IfRegisterClicked", "true");
+
+			return "Organization";
+		}
 	 }
 	    

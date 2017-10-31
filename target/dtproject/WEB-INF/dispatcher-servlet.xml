@@ -10,8 +10,8 @@ xmlns:mvc="http://www.springframework.org/schema/mvc"
 	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 <!-- to scan the packages in backend & frontend-->
 <context:component-scan base-package="com.backend.*"/>
-<mvc:annotation-driven/>
-<mvc:resources mapping="/resources/**" location="/resources/" />
+<!-- <mvc:annotation-driven/>
+<mvc:resources mapping="/resources/**" location="/resources/" /> -->
 <context:annotation-config/>
 
 	<bean id="viewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >

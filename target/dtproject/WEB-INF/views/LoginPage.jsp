@@ -1,107 +1,100 @@
-<!DOCTYPE html>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Page</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="resources/css/Pretty-Footer.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-  .container {
-  margin-top: 30px
-}
-#f1 {
-  max-width: 350px;
-  width: 100%;
-  margin: 40px auto;
-  background: #fff;
-  position: relative;
-  box-shadow: 0 5px 5px 0 rgba(50, 50, 50, 0.7);
-}
-#f3 {
-  padding: 9px 0;
-  position: relative;
-  margin-bottom: 0;
-}
-#f4, #f4:focus {
-  border: none;
-  box-shadow: none;
-  padding-left: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.26);
-  border-radius: 0
-}
-#f2 {
-    padding: 42px;
-}
-#b1.btn {
-  background: #40ff00;
-  border: none;
-  border-radius: 0;
-  text-transform: uppercase;
- font-weight: bold;
-  width: 180px;
-  height: 45px;
-  margin: 30px auto;
-  display: block;
-}
-#navbar, #nav {
-     opacity: 0.6;
-}
-.right{
-text-align: right;
-    float: right;}
-.slideDown {
-    animation-duration: 1.5s;
-    animation-name: slideDown;
-    animation-timing-function: ease;
-    visibility: visible !important;
-}
-@keyframes slideDown {
-0% {
-    transform: translateY(-100%);
-}
-100% {
-    transform: translateY(0%);
-}
-}
-</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<c:url value="resources/assets/css/Pretty-Footer.css"/>">
+    <link rel="stylesheet" href="<c:url value="resources/assets/css/Pretty-Registration-Form.css"/>">
+    <link rel="stylesheet" href="<c:url value="resources/assets/css/Google-Style-Login.css"/>">
 </head>
-<div class="container"> 
-       <div style='position:absolute;zindex:0;left:0;top:0;width:100%;height:100%'>
-           <img src='C:\Users\swetha\Pictures\Saved Pictures\back.jpg' style='width:100%;height:80%' alt='[]' />
-       </div>
-   </div>
-<body >
-<jsp:include page="header.jsp"/>
-<div class='container' id="nav">
-  <div class='row'>
-    <div class='col-md-12'>
-    <form class="slideDown" id="f1" action="j_spring_security_check" method="post">
-      <div class="form-Wrapper" id="f2">
-        <div class="form-group" id="f3"> 
-        <span style="font-weight:900">Email</span>            
-            <input type="text" id="f4" class="form-control" name="j_username"   required >
-        </div>
-        <div class="form-group" id="f3">           
-        <span style="font-weight:900">Password</span>
-            <input type="password" class="form-control" id="f4" name="j_password"  required>
-        </div>
-        <div class="checkbox">
-    <label><input type="checkbox" required> Remember me</label>
-  </div>
-  <div class="form-group">
-	<label for="code" class="col-xs-4 control-label"></label>
-	 <div class="col-xs-4"> 
-         <button type="submit" class="btn btn-success" >Login</button>
-</div>
-</div>
+  
+</head>
+<body>
 
-      </div>
-    </form>
-    </div>
-  </div>
-</div>
-  <jsp:include page="footer.jsp"/>
+<jsp:include page="header.jsp" />
+
+<form  method="post" action="j_spring_security_check" class="form-horizontal" >
+
+<h1 align="center">LOGIN</h1>
+	<div class="form-group">
+		<label for="User Email" class="col-xs-4 control-label">Email</label>
+		<div class="col-xs-4">
+			<input name="j_username" type="email"  placeholder=" User Email" class="form-control" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="code" class="col-xs-4 control-label">Password</label>
+		<div class="col-xs-4">
+			<input name="j_password"  type="password" placeholder="User Password" class="form-control" />
+		</div>
+	</div>
+            
+            <div class="form-group">
+	<label for="code" class="col-xs-4 control-label"></label>
+		
+		<div class="col-xs-4">	
+		<input type="submit" value="Login" id="btn-add" class="btn btn-primary" >
+		</div>
+	</div> 
+            
+            <div class="checkbox">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">Remember me</label>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            <!-- <button class="btn btn-primary  btn-lg btn-signin" type="submit"><span class="glyphicon glyphicon-off"></span>Sign in</button> -->
+            <div >
+            ${error}
+			${logout }
+            </div>
+        <form><a href="#" class="forgot-password">Forgot your password?</a></form>
+        
+        
+
+	<!-- <div class="form-group">
+	<label for="code" class="col-xs-4 control-label"></label>
+		
+		<div class="col-xs-4">	
+		<input type="submit" value="Login" id="btn-add" class="btn btn-primary" >
+		</div>
+	</div> -->
+</form>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<jsp:include page="footer.jsp" />
+  <script src="<c:url value="resources/assets/js/jquery.min.js"/>"></script>
+    <script src="<c:url value="resources/assets/bootstrap/js/bootstrap.min.js"/>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+
+ 
 </body>
+
 </html>

@@ -17,11 +17,11 @@
     	margin: 20px;
     }
 </style>
-<%-- <jsp:include page="showProduct.jsp" /> --%> 
+
 
 </head>
 <body>
- <body style="background-color: rgb(205, 218, 226);" data-gr-c-s-loaded="true"> 
+ <body style="background-color: #fff9c4 ;" data-gr-c-s-loaded="true"> 
 
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
@@ -44,7 +44,8 @@
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="">Organization</a></li>
+                        <li><a href="organization.jsp">Organization</a></li>
+                           
                             <li><a href="#">Alerts</a></li>
                         </ul>
                     </li>
@@ -68,9 +69,7 @@
                     </li>
                 </ul>
                    
-                <!-- <ul class="nav navbar-nav">
-                    <li><a href="viewcart">Cart</a></li>
-               </ul>  -->        
+            
             </div><!-- /.navbar-collapse -->
         </div>
     </nav>
@@ -113,17 +112,18 @@
 </div>
 <!-- =================================== -->
 
-	<%-- <div class="container">
+	
+<div class="container">
 		<c:forEach items="${ProductList}" var="product">
-			<h2 style="color: Brown">
+			<h2 style="color: red">
 				<c:out value="${product.name }" />
 			</h2>
 
 
 			<div class="row">
-			<img src="/dtproject/myImage/imageDisplay?id=${product.id}"
-	class="img-responsive" style="width: 180px; height: 250px">
-		<div>				</div>
+										<img src="/dtbackend/myImage/imageDisplay?id=${product.id}"
+											class="img-responsive" style="width: 180px; height: 120px">
+										<div>				</div>
 			</div>
 
 			<div class="row">
@@ -131,16 +131,16 @@
 					<div class="desc">
 						<p>
 						<div class="form-group">
-							<input type="text" style="width: 300px;"class="form-control" value="${product.name}"
+							<input type="text" style="width:300px;"class="form-control" value="${product.name}"
 								readonly="readonly">
 						</div>
 
 						<div class="form-group">
-							<input type="text" style="width: 300px;"class="form-control"
+							<input type="text" style="width:300px;"class="form-control"
 								value="Rs. ${product.price}" readonly="readonly">
 						</div>
 						<div class="form-group">
-							<input type="text" style="width: 300px;"class="form-control"
+							<input type="text" style="width:300px;"class="form-control"
 								value="${product.description}" readonly="readonly">
 						</div>
 						<div>
@@ -158,68 +158,6 @@
 			</div>
 		</c:forEach>
 	</div>
-	 --%>
-	 
-	 <c:forEach items="${ProductList}" var="product">
-	 <div class="container">
-		
-			<h3 style="color: Brown">
-				<c:out value="${product.name }" />
-			</h3>
-	
-   
-    
-        <div class="row product">
-            <div class="col-md-5 col-md-offset-0">
-           <div class="row">
-			<img src="/dtproject/myImage/imageDisplay?id=${product.id}"
-	class="img-responsive" style="width: 180px; height: 250px">
-		</div>				
-	</div>
-            <div class="col-md-6">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Specifications </th>
-                                <th>Details </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td> Name</td>
-                                <td>${product.name}</td>
-                            </tr>
-                            <tr>
-                                <td>Price </td>
-                                <td>${product.price} </td>
-                            </tr>
-                            <tr>
-                                <td>Description</td>
-                                <td>${product.description} </td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-                </div>
-             <div>
-            		<form action="addtoCart/${product.id}">
-                      	<input type="submit" value="Add to Cart" class="btn btn-primary" >
-					</form>
-				</div>
-             
-            </div>
-        </div>
-        
-     
-        <div class="media">
-            <div class="media-body"></div>
-        </div>
-        <div class="media">
-            <div class="media-body"></div>
-        </div> 
-    </div>
-</c:forEach>
 
 	<br><br><br><br>
 <div class="container">

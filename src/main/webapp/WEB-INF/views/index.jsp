@@ -44,7 +44,8 @@
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="">Organization</a></li>
+                        <li><a href="organization.jsp">Organization</a></li>
+                           
                             <li><a href="#">Alerts</a></li>
                         </ul>
                     </li>
@@ -119,13 +120,13 @@
 			</h2>
 
 
-			<div class="row">
+			<div class="column">
 										<img src="/dtbackend/myImage/imageDisplay?id=${product.id}"
 											class="img-responsive" style="width: 180px; height: 120px">
 										<div>				</div>
 			</div>
 
-			<div class="row">
+			<div class="column">
 				<div class="img">
 					<div class="desc">
 						<p>

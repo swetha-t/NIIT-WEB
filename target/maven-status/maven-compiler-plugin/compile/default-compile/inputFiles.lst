@@ -1,4 +1,4 @@
-F:\workspace\dtproject\dtproject\src\main\java\com\backend\DAO\checkOutDAOImpl.java
+F:\workspace\dtproject\dtproject\src\main\java\com\backend\DAO\CheckDAOImpl.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\controller\ImageController.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\model\User.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\controller\CheckoutController.java
@@ -20,6 +20,7 @@ F:\workspace\dtproject\dtproject\src\main\java\com\backend\DAO\ProductDAO.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\model\Product.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\model\Checkout.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\controller\CartController.java
+F:\workspace\dtproject\dtproject\src\main\java\com\backend\DAO\CheckDAO.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\DAO\ProductDAOImpl.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\DAO\paymentDAOImpl.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\DAO\OrderDAOImpl.java
@@ -29,6 +30,5 @@ F:\workspace\dtproject\dtproject\src\main\java\com\backend\controller\SupplierCo
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\model\Order.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\DAO\paymentDAO.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\DAO\CategoryDAOImpl.java
-F:\workspace\dtproject\dtproject\src\main\java\com\backend\DAO\CheckOutDAO.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\DAO\UserDAO.java
 F:\workspace\dtproject\dtproject\src\main\java\com\backend\DAO\UserDAOImpl.java

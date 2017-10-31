@@ -45,8 +45,8 @@ public class CartController {
 		User user = userDAO.get(email);
 		
     	
-    	//int userId = (int) session.getAttribute("userid");	
-    	 userId=user.getId();
+    	int userId = (Integer) session.getAttribute("userid");	
+    	/* userId=user.getId();*/
     	System.out.println(userId);
     	
     	int q=1;
@@ -109,7 +109,7 @@ public class CartController {
 		User user = userDAO.get(email);
 		
     	
-    	 userId = user.getId();
+    	int userId = user.getId();
     
 		//int userId = (Integer) session.getAttribute("userid");
 		model.addAttribute("CartList", cartDAO.listCart());
@@ -177,13 +177,13 @@ return "loggedin";
 
 }
 
-@RequestMapping("CheckOut")
+/*@RequestMapping("CheckOut")
 public String checkout()
 {
 return "CheckOut";	
 
 }
-
+*/
 
 
 

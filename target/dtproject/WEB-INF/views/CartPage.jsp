@@ -41,7 +41,7 @@
                     <li><a href="loggedin">Home</a></li>
                     
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Messages <b class="caret"></b></a>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="">Organization</a></li>
                             <li><a href="#">Alerts</a></li>
